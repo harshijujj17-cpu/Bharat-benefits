@@ -1,0 +1,218 @@
+[
+	{
+		"profile_id": "P001",
+		"demographics": {"age": 41, "gender": "woman", "state": "Bihar", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 168000, "primary_income_source": "smallholder farming"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Cultivates family-owned rice and wheat fields",
+		"household_context": {"agricultural_land_acres": 1.4, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": false, "poor_household_declaration_assumed": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)", "Pradhan Mantri Fasal Bima Yojana (PMFBY)", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P002",
+		"demographics": {"age": 52, "gender": "man", "state": "Madhya Pradesh", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 214000, "primary_income_source": "farming and seasonal labor"},
+		"education": {"highest_level": "primary", "currently_enrolled": false},
+		"occupation": "Small farmer growing soybean and wheat",
+		"household_context": {"agricultural_land_acres": 3.0, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)", "Pradhan Mantri Fasal Bima Yojana (PMFBY)"]
+	},
+	{
+		"profile_id": "P003",
+		"demographics": {"age": 36, "gender": "woman", "state": "Odisha", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 132000, "primary_income_source": "tenant farming"},
+		"education": {"highest_level": "middle school", "currently_enrolled": false},
+		"occupation": "Sharecropper cultivating paddy on leased land",
+		"household_context": {"agricultural_land_acres": 0, "land_record_in_family_name": false, "locally_accepted_cultivation_proof_assumed": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": false, "poor_household_declaration_assumed": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Fasal Bima Yojana (PMFBY)", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P004",
+		"demographics": {"age": 47, "gender": "man", "state": "Punjab", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 720000, "primary_income_source": "government salary and farming"},
+		"education": {"highest_level": "bachelor's degree", "currently_enrolled": false},
+		"occupation": "State government employee who also owns agricultural land",
+		"household_context": {"agricultural_land_acres": 2.2, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Fasal Bima Yojana (PMFBY)"]
+	},
+	{
+		"profile_id": "P005",
+		"demographics": {"age": 64, "gender": "woman", "state": "Uttar Pradesh", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 96000, "primary_income_source": "small farm and family support"},
+		"education": {"highest_level": "no formal schooling", "currently_enrolled": false},
+		"occupation": "Widowed farmer growing pulses and millet",
+		"household_context": {"agricultural_land_acres": 0.8, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": false, "poor_household_declaration_assumed": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)", "Pradhan Mantri Fasal Bima Yojana (PMFBY)", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P006",
+		"demographics": {"age": 44, "gender": "man", "state": "Rajasthan", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 185000, "primary_income_source": "rain-fed farming"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Farmer growing bajra and mustard",
+		"household_context": {"agricultural_land_acres": 4.1, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": true, "income_tax_payer": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Fasal Bima Yojana (PMFBY)"]
+	},
+	{
+		"profile_id": "P007",
+		"demographics": {"age": 29, "gender": "man", "state": "Assam", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 156000, "primary_income_source": "small tea and paddy farm"},
+		"education": {"highest_level": "higher secondary", "currently_enrolled": false},
+		"occupation": "Small farmer with land in family records",
+		"household_context": {"agricultural_land_acres": 1.1, "land_record_in_family_name": true, "notified_crop_and_area_assumed": true, "existing_lpg_connection": false, "poor_household_declaration_assumed": true, "adult_woman_applicant_in_household": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)", "Pradhan Mantri Fasal Bima Yojana (PMFBY)", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P008",
+		"demographics": {"age": 39, "gender": "woman", "state": "Maharashtra", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 248000, "primary_income_source": "farm labor and tailoring"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Farm laborer without land recorded in the household's name",
+		"household_context": {"agricultural_land_acres": 0, "land_record_in_family_name": false, "notified_crop_and_area_assumed": false, "existing_lpg_connection": true},
+		"expected_relevant_schemes": []
+	},
+	{
+		"profile_id": "P009",
+		"demographics": {"age": 27, "gender": "woman", "state": "Jharkhand", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 108000, "primary_income_source": "daily-wage labor"},
+		"education": {"highest_level": "middle school", "currently_enrolled": false},
+		"occupation": "Agricultural laborer",
+		"household_context": {"agricultural_land_acres": 0, "land_record_in_family_name": false, "existing_lpg_connection": false, "poor_household_declaration_assumed": true, "family_composition_document_available": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P010",
+		"demographics": {"age": 33, "gender": "woman", "state": "West Bengal", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 192000, "primary_income_source": "domestic work"},
+		"education": {"highest_level": "primary", "currently_enrolled": false},
+		"occupation": "Part-time domestic worker",
+		"household_context": {"agricultural_land_acres": 0, "existing_lpg_connection": true, "poor_household_declaration_assumed": true},
+		"expected_relevant_schemes": []
+	},
+	{
+		"profile_id": "P011",
+		"demographics": {"age": 24, "gender": "woman", "state": "Delhi", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 144000, "primary_income_source": "informal retail work"},
+		"education": {"highest_level": "higher secondary", "currently_enrolled": false},
+		"occupation": "Informal retail worker in a migrant household",
+		"household_context": {"agricultural_land_acres": 0, "existing_lpg_connection": false, "poor_household_declaration_assumed": true, "family_composition_document_available": true, "address_proof_available": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P012",
+		"demographics": {"age": 17, "gender": "woman", "state": "Chhattisgarh", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 84000, "primary_income_source": "seasonal farm labor"},
+		"education": {"highest_level": "secondary", "currently_enrolled": true},
+		"occupation": "Secondary-school student",
+		"household_context": {"agricultural_land_acres": 0.3, "land_record_in_family_name": true, "existing_lpg_connection": false, "adult_woman_applicant_in_household": true, "poor_household_declaration_assumed": true},
+		"expected_relevant_schemes": ["Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P013",
+		"demographics": {"age": 38, "gender": "man", "state": "Karnataka", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 216000, "primary_income_source": "carpentry"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Self-employed traditional carpenter",
+		"household_context": {"agricultural_land_acres": 0, "traditional_trade": "carpenter", "self_employed": true, "government_employee": false, "family_applicant_limit_available_assumed": true},
+		"expected_relevant_schemes": ["PM Vishwakarma"]
+	},
+	{
+		"profile_id": "P014",
+		"demographics": {"age": 45, "gender": "woman", "state": "Uttar Pradesh", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 120000, "primary_income_source": "pottery and farm labor"},
+		"education": {"highest_level": "primary", "currently_enrolled": false},
+		"occupation": "Self-employed potter making earthen cookware",
+		"household_context": {"agricultural_land_acres": 0.4, "traditional_trade": "potter", "self_employed": true, "government_employee": false, "existing_lpg_connection": false, "poor_household_declaration_assumed": true, "adult_woman_applicant_in_household": true},
+		"expected_relevant_schemes": ["PM Vishwakarma", "Pradhan Mantri Ujjwala Yojana (PMUY)"]
+	},
+	{
+		"profile_id": "P015",
+		"demographics": {"age": 22, "gender": "man", "state": "Tamil Nadu", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 204000, "primary_income_source": "tailoring"},
+		"education": {"highest_level": "higher secondary", "currently_enrolled": false},
+		"occupation": "Self-employed tailor working from a rented room",
+		"household_context": {"agricultural_land_acres": 0, "traditional_trade": "tailor", "self_employed": true, "government_employee": false, "family_applicant_limit_available_assumed": true},
+		"expected_relevant_schemes": ["PM Vishwakarma"]
+	},
+	{
+		"profile_id": "P016",
+		"demographics": {"age": 67, "gender": "man", "state": "Kerala", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 180000, "primary_income_source": "barber services"},
+		"education": {"highest_level": "middle school", "currently_enrolled": false},
+		"occupation": "Self-employed barber operating a small village shop",
+		"household_context": {"agricultural_land_acres": 0, "traditional_trade": "barber", "self_employed": true, "government_employee": false},
+		"expected_relevant_schemes": ["PM Vishwakarma"]
+	},
+	{
+		"profile_id": "P017",
+		"demographics": {"age": 31, "gender": "woman", "state": "Gujarat", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 276000, "primary_income_source": "wage employment"},
+		"education": {"highest_level": "diploma", "currently_enrolled": false},
+		"occupation": "Factory employee sewing garments for an employer",
+		"household_context": {"agricultural_land_acres": 0, "traditional_trade": "tailor", "self_employed": false, "government_employee": false},
+		"expected_relevant_schemes": []
+	},
+	{
+		"profile_id": "P018",
+		"demographics": {"age": 40, "gender": "man", "state": "Himachal Pradesh", "residence": "rural"},
+		"financial_information": {"annual_household_income_inr": 232000, "primary_income_source": "masonry"},
+		"education": {"highest_level": "primary", "currently_enrolled": false},
+		"occupation": "Self-employed mason taking small local construction jobs",
+		"household_context": {"agricultural_land_acres": 0.2, "traditional_trade": "mason", "self_employed": true, "government_employee": false},
+		"expected_relevant_schemes": ["PM Vishwakarma"]
+	},
+	{
+		"profile_id": "P019",
+		"demographics": {"age": 35, "gender": "woman", "state": "Telangana", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 198000, "primary_income_source": "fruit vending"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Street vendor selling fruit from a pushcart",
+		"household_context": {"agricultural_land_acres": 0, "vendor_identification": "Certificate of Vending", "mobile_linked_to_aadhaar": true, "state_notification_assumed": true},
+		"expected_relevant_schemes": ["PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)"]
+	},
+	{
+		"profile_id": "P020",
+		"demographics": {"age": 49, "gender": "man", "state": "Maharashtra", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 252000, "primary_income_source": "tea vending"},
+		"education": {"highest_level": "middle school", "currently_enrolled": false},
+		"occupation": "Street tea vendor identified in the municipal survey",
+		"household_context": {"agricultural_land_acres": 0, "vendor_identification": "survey reference; Certificate of Vending pending", "mobile_linked_to_aadhaar": true, "state_notification_assumed": true},
+		"expected_relevant_schemes": ["PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)"]
+	},
+	{
+		"profile_id": "P021",
+		"demographics": {"age": 28, "gender": "woman", "state": "Uttar Pradesh", "residence": "peri-urban"},
+		"financial_information": {"annual_household_income_inr": 144000, "primary_income_source": "vegetable vending"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Vegetable vendor operating within a nearby Urban Local Body area",
+		"household_context": {"agricultural_land_acres": 0, "vendor_identification": "Letter of Recommendation from local body", "mobile_linked_to_aadhaar": true, "state_notification_assumed": true},
+		"expected_relevant_schemes": ["PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)"]
+	},
+	{
+		"profile_id": "P022",
+		"demographics": {"age": 42, "gender": "man", "state": "Andhra Pradesh", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 420000, "primary_income_source": "small retail shop"},
+		"education": {"highest_level": "bachelor's degree", "currently_enrolled": false},
+		"occupation": "Owner of a permanent neighborhood grocery shop",
+		"household_context": {"agricultural_land_acres": 0, "vendor_identification": "none; fixed premises, not a street vendor", "mobile_linked_to_aadhaar": true},
+		"expected_relevant_schemes": []
+	},
+	{
+		"profile_id": "P023",
+		"demographics": {"age": 56, "gender": "man", "state": "Assam", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 174000, "primary_income_source": "street food vending"},
+		"education": {"highest_level": "primary", "currently_enrolled": false},
+		"occupation": "Street food vendor in a Census Town",
+		"household_context": {"agricultural_land_acres": 0, "vendor_identification": "Letter of Recommendation from local body", "mobile_linked_to_aadhaar": true, "state_notification_assumed": true},
+		"expected_relevant_schemes": ["PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)"]
+	},
+	{
+		"profile_id": "P024",
+		"demographics": {"age": 26, "gender": "man", "state": "Rajasthan", "residence": "urban"},
+		"financial_information": {"annual_household_income_inr": 228000, "primary_income_source": "blacksmithing and mobile street vending"},
+		"education": {"highest_level": "secondary", "currently_enrolled": false},
+		"occupation": "Self-employed blacksmith who sells small tools from a municipal-market stall",
+		"household_context": {"agricultural_land_acres": 0, "traditional_trade": "blacksmith", "self_employed": true, "government_employee": false, "vendor_identification": "Certificate of Vending", "mobile_linked_to_aadhaar": true, "state_notification_assumed": true},
+		"expected_relevant_schemes": ["PM Vishwakarma", "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi)"]
+	}
+]

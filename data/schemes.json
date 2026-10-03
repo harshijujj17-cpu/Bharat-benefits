@@ -1,0 +1,2553 @@
+[
+  {
+    "id": "pm_kisan",
+    "name": "PM-KISAN",
+    "category": "Agriculture",
+    "description": "Income support for eligible landholding farmers.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Land ownership records / Khasra-Khatauni",
+      "Bank account details (passbook/cancelled cheque)"
+    ],
+    "benefits": "₹6,000 per year transferred directly to the farmer's bank account in three equal instalments of ₹2,000 each every four months.",
+    "apply_url": "https://pmkisan.gov.in",
+    "verified": false,
+    "application_process": "Apply online at pmkisan.gov.in or visit the nearest Common Service Centre (CSC) or Agriculture Department office. Self-registration is available on the PM-KISAN portal. Farmer must complete Aadhaar-based eKYC to receive instalments.",
+    "helpline": "PM-KISAN helpline: 155261 / 011-24300606"
+  },
+  {
+    "id": "pmfby",
+    "name": "Pradhan Mantri Fasal Bima Yojana",
+    "category": "Agriculture",
+    "description": "Crop insurance.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details",
+      "Land records / Sowing certificate",
+      "Crop details"
+    ],
+    "benefits": "Crop insurance cover for losses due to natural calamities, pests, and diseases. Premium rates: up to 2% for Kharif crops, up to 1.5% for Rabi crops, and up to 5% for annual commercial/horticultural crops. The balance premium is shared by Central and State Governments.",
+    "apply_url": "https://pmfby.gov.in",
+    "verified": false,
+    "application_process": "Apply through your nearest bank branch (especially where KCC is held), CSC, or online at pmfby.gov.in. Loanee farmers are auto-enrolled; non-loanee farmers must apply before the cut-off date for each season.",
+    "helpline": "PMFBY helpline: 1800-180-1551"
+  },
+  {
+    "id": "kcc",
+    "name": "Kisan Credit Card",
+    "category": "Agriculture",
+    "description": "Agricultural credit.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "PAN card (for credit above ₹50,000)",
+      "Land ownership/lease records",
+      "Passport-size photographs",
+      "Bank account details"
+    ],
+    "benefits": "Revolving credit facility for agricultural needs: crop cultivation, post-harvest expenses, allied activities, and consumption needs. Interest subvention of 2% available; additional 3% incentive for prompt repayment, reducing effective interest to around 4% per annum. Credit limit up to ₹3 lakh under the short-term loan component.",
+    "apply_url": "https://www.nabard.org/content.aspx?id=572",
+    "verified": false,
+    "application_process": "Apply at any scheduled commercial bank, cooperative bank, or regional rural bank. Submit the KCC application form with land records and identity proof. The bank will assess the credit limit based on cultivated area and crop pattern.",
+    "helpline": "Contact your bank branch or NABARD helpline: 022-26539895"
+  },
+  {
+    "id": "pmksy",
+    "name": "Pradhan Mantri Krishi Sinchayee Yojana",
+    "category": "Agriculture",
+    "description": "Irrigation and water-use efficiency.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Aadhaar card",
+      "Land ownership records / 7/12 extract",
+      "Bank passbook copy"
+    ],
+    "benefits": "Improved irrigation efficiency; subsidy support for micro-irrigation (drip/sprinkler) under the PDMC component. Helps farmers reduce water usage and improve crop productivity.",
+    "apply_url": "https://pmksy.gov.in",
+    "verified": false,
+    "application_process": "Farmers can apply for micro-irrigation subsidies (drip/sprinkler) through the state horticulture or agriculture department portals.",
+    "helpline": "Kisan Call Centre: 1800-180-1551"
+  },
+  {
+    "id": "soil_health_card",
+    "name": "Soil Health Card Scheme",
+    "category": "Agriculture",
+    "description": "Soil testing and nutrient recommendations.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Land record details",
+      "Aadhaar card / identity proof"
+    ],
+    "benefits": "Free soil health card containing soil nutrient status and recommendations for fertiliser dosage and soil amendments for each farm plot. Helps reduce input costs and improve yields.",
+    "apply_url": "https://soilhealth.dac.gov.in",
+    "verified": false,
+    "application_process": "Contact your state Agriculture Department or the nearest Krishi Vigyan Kendra. Soil samples are collected from your field by government officials. The card is issued within 6–8 weeks of sample submission.",
+    "helpline": "Kisan Call Centre Toll Free: 1800-180-1551"
+  },
+  {
+    "id": "pm_kusum",
+    "name": "PM-KUSUM",
+    "category": "Agriculture",
+    "description": "Solar pumps and renewable energy support for farmers.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Land ownership documents",
+      "Bank account details"
+    ],
+    "benefits": "Subsidy of up to 60% on solar pump installation (30% from Central Government, 30% from State Government); farmers pay only 10% (additional 10% as loan in some states). Component-A: grid-connected solar power plants on barren/fallow land; Component-B: standalone solar agriculture pumps; Component-C: solarisation of grid-connected pumps.",
+    "apply_url": "https://mnre.gov.in/solar/schemes/",
+    "verified": false,
+    "application_process": "Apply through your State Nodal Agency (SNA) or DISCOM. Visit the PM-KUSUM portal or contact the State Agriculture / Renewable Energy Department.",
+    "helpline": "PM-KUSUM helpline: 011-24300294"
+  },
+  {
+    "id": "e_nam",
+    "name": "National Agriculture Market (e-NAM)",
+    "category": "Agriculture",
+    "description": "Online agricultural marketplace.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details",
+      "Registration at nearest APMC mandi"
+    ],
+    "benefits": "Access to a national online trading platform for agricultural commodities. Enables farmers to get better prices by connecting with buyers across India. Transparent price discovery through electronic bidding.",
+    "apply_url": "https://enam.gov.in",
+    "verified": false,
+    "application_process": "Register at your nearest APMC/mandi that is integrated with e-NAM. Alternatively, register online at enam.gov.in.",
+    "helpline": "e-NAM Helpdesk Toll Free: 1800-270-0224"
+  },
+  {
+    "id": "agri_infra_fund",
+    "name": "Agriculture Infrastructure Fund",
+    "category": "Agriculture",
+    "description": "Financing for post-harvest infrastructure.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card / KYC documents",
+      "Business/project plan",
+      "Bank account details"
+    ],
+    "benefits": "Credit-linked, interest subvention of 3% per annum on loans up to ₹2 crore for post-harvest management infrastructure and community farming assets. Credit guarantee cover through CGTMSE.",
+    "apply_url": "https://agriinfra.dac.gov.in",
+    "verified": false,
+    "application_process": "Apply online at agriinfra.dac.gov.in or through your bank/PACS/APMC.",
+    "helpline": "AIF helpline: 1800-3000-0166"
+  },
+  {
+    "id": "natural_farming",
+    "name": "National Mission on Natural Farming",
+    "category": "Agriculture",
+    "description": "Support for natural and sustainable farming.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "farmer"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Land records",
+      "Bank account details"
+    ],
+    "benefits": "Financial support to farmers transitioning to natural farming practices: training, demonstrations, and input support. Reduces dependency on chemical inputs and lowers cultivation costs.",
+    "apply_url": "https://naturalfarming.dac.gov.in",
+    "verified": false,
+    "application_process": "Contact your State Agriculture Department or local Krishi Vigyan Kendra (KVK). Register on the National Natural Farming Mission portal when available, or apply through the state nodal agency.",
+    "helpline": "Kisan Call Centre: 1800-180-1551"
+  },
+  {
+    "id": "pm_dhan_dhaanya",
+    "name": "Pradhan Mantri Dhan-Dhaanya Krishi Yojana",
+    "category": "Agriculture",
+    "description": "Development of selected low-productivity agricultural districts.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Farmer identity proof (Aadhaar)",
+      "Land records / Patta",
+      "Bank account details"
+    ],
+    "benefits": "Comprehensive agriculture and rural credit initiative aimed at strengthening agricultural infrastructure, storage, market linkages, and crop diversification for farmers.",
+    "apply_url": "https://agricoop.nic.in",
+    "verified": false,
+    "application_process": "Facilitated through primary agricultural credit societies (PACS), state agriculture departments, and rural cooperative banks.",
+    "helpline": "Kisan Call Centre: 1800-180-1551"
+  },
+  {
+    "id": "pmjay",
+    "name": "Ayushman Bharat PM-JAY",
+    "category": "Health",
+    "description": "Health insurance/cover for eligible families.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Ration card / SECC-2011 inclusion proof"
+    ],
+    "benefits": "Health insurance cover of up to ₹5 lakh per family per year for secondary and tertiary care hospitalisation. Covers pre- and post-hospitalisation expenses, medicine, diagnostics, and more. Cashless and paperless treatment at empanelled government and private hospitals.",
+    "apply_url": "https://pmjay.gov.in",
+    "verified": false,
+    "application_process": "Check eligibility at pmjay.gov.in or call the helpline. Visit the nearest Common Service Centre (CSC) or Ayushman Mitra at an empanelled hospital to get your Ayushman card. Beneficiaries from SECC-2011 database are auto-enrolled.",
+    "helpline": "Ayushman Bharat helpline: 14555 / 1800-111-565"
+  },
+  {
+    "id": "ab_hwc",
+    "name": "Ayushman Bharat Health and Wellness Centres",
+    "category": "Health",
+    "description": "Primary healthcare services.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Identity card / ABHA (Ayushman Bharat Health Account) ID",
+      "Aadhaar card (optional/recommended for registration)"
+    ],
+    "benefits": "Comprehensive primary healthcare delivered closer to homes, offering free essential drugs, diagnostic services, maternal & child healthcare, screening and management of non-communicable diseases (hypertension, diabetes, cancers).",
+    "apply_url": "https://ab-hwc.nhp.gov.in",
+    "verified": false,
+    "application_process": "Walk-in to the nearest Ayushman Arogya Mandir (Health and Wellness Centre) or Sub-Health Centre in your village or urban ward.",
+    "helpline": "National Health Toll-Free: 104 / 14555"
+  },
+  {
+    "id": "janaushadhi",
+    "name": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+    "category": "Health",
+    "description": "Affordable generic medicines.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Valid doctor's prescription (required to purchase prescription-only generic medicines; no document needed for OTC products)"
+    ],
+    "benefits": "Quality generic medicines at prices 50–90% lower than branded medicines, available at Pradhan Mantri Bhartiya Janaushadhi Kendras.",
+    "apply_url": "https://janaushadhi.gov.in",
+    "verified": false,
+    "application_process": "Visit the nearest Pradhan Mantri Janaushadhi Kendra with a doctor's prescription to purchase medicines.",
+    "helpline": "PMBI National Toll Free: 1800-180-8080"
+  },
+  {
+    "id": "mission_indradhanush",
+    "name": "Mission Indradhanush",
+    "category": "Health",
+    "description": "Immunisation.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Mother & Child Protection (MCP) card / child vaccination record (if available; vaccination is provided even without prior documents)"
+    ],
+    "benefits": "Free vaccination for children (0–2 years) and pregnant women against 12 vaccine-preventable diseases including polio, diphtheria, TB, hepatitis B, and others.",
+    "apply_url": "https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=824&lid=220",
+    "verified": false,
+    "application_process": "Visit the nearest government health centre or Anganwadi Centre. Immunisation is provided free of cost during scheduled rounds and routine immunisation sessions.",
+    "helpline": "National Health Helpline: 1075 / 1800-180-1104"
+  },
+  {
+    "id": "nhm",
+    "name": "National Health Mission",
+    "category": "Health",
+    "description": "Rural and urban public health services.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "No prior documentation for emergency care; Aadhaar/voter ID and ANC/Mother-Child card for maternity benefits at public health facilities."
+    ],
+    "benefits": "Strengthens public healthcare infrastructure across rural and urban areas; provides universal access to equitable, affordable quality healthcare, institutional deliveries (JSY), free ambulance services, and national disease control programs.",
+    "apply_url": "https://nhm.gov.in",
+    "verified": false,
+    "application_process": "Access services directly through government sub-centres, Primary Health Centres (PHCs), Community Health Centres (CHCs), and District Hospitals.",
+    "helpline": "National Health Helpline: 1800-180-1104"
+  },
+  {
+    "id": "pmmvy",
+    "name": "Pradhan Mantri Matru Vandana Yojana",
+    "category": "Women and Children",
+    "description": "Maternity benefit support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Husband's Aadhaar card",
+      "Bank account / post office account details",
+      "MCP (Mother and Child Protection) card"
+    ],
+    "benefits": "Maternity benefit of ₹5,000 (for the first live birth) in instalments to compensate for wage loss and improve health and nutrition of pregnant women and lactating mothers.",
+    "apply_url": "https://wcd.nic.in/schemes/pradhan-mantri-matritva-vandana-yojana",
+    "verified": false,
+    "application_process": "Register and apply at the Anganwadi Centre (AWC) or Approved Health Facility. Claims are submitted in three instalments linked to antenatal check-ups and delivery.",
+    "helpline": "Women Helpline: 181"
+  },
+  {
+    "id": "esanjeevani",
+    "name": "eSanjeevani",
+    "category": "Health",
+    "description": "Government telemedicine services.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Active mobile number (for OTP)",
+      "Previous medical records / prescriptions (optional for doctor consultation)"
+    ],
+    "benefits": "Free teleconsultation with government doctors from home. No travel required. Available 7 days a week.",
+    "apply_url": "https://esanjeevaniopd.in",
+    "verified": false,
+    "application_process": "Register and book an appointment at esanjeevaniopd.in or download the eSanjeevani app.",
+    "helpline": "eSanjeevani Teleconsultation Helpline: 011-23978046"
+  },
+  {
+    "id": "pm_abhim",
+    "name": "PM-ABHIM",
+    "category": "Health",
+    "description": "Strengthening health infrastructure.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Pan-India infrastructure mission to strengthen health systems and institutions for pandemic preparedness, establishing critical care hospital blocks in districts and integrated public health labs.",
+    "apply_url": "https://pmabhim.mohfw.gov.in",
+    "verified": false,
+    "application_process": "Central and State health infrastructure funding program implemented through state health departments; no direct citizen application.",
+    "helpline": "Ministry of Health Helpline: 011-23061438"
+  },
+  {
+    "id": "pmay_g",
+    "name": "Pradhan Mantri Awas Yojana-Gramin",
+    "category": "Housing and Sanitation",
+    "description": "Rural housing.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "rural",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "SECC-2011 data inclusion",
+      "Bank account details"
+    ],
+    "benefits": "Financial assistance of ₹1.20 lakh (plain areas) or ₹1.30 lakh (hilly/difficult areas) for construction of a pucca house. Additionally, ₹12,000 for toilet construction under SBM-G and 90/95 person-days of unskilled labour under MGNREGS.",
+    "apply_url": "https://pmayg.nic.in",
+    "verified": false,
+    "application_process": "Beneficiaries are selected from the SECC-2011 database. Contact your Gram Panchayat or Block Development Office to verify your inclusion. Funds are transferred directly to the beneficiary's bank account in instalments.",
+    "helpline": "PMAY-G helpline: 1800-11-6446"
+  },
+  {
+    "id": "pmay_u",
+    "name": "Pradhan Mantri Awas Yojana-Urban 2.0",
+    "category": "Housing and Sanitation",
+    "description": "Urban housing support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "urban",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Income certificate",
+      "Bank account details",
+      "Property documents / allotment letter"
+    ],
+    "benefits": "Interest subsidy (Credit Linked Subsidy Scheme — CLSS) on home loans for eligible beneficiaries; direct beneficiary transfer for construction in slums; affordable housing in partnership. Subsidy varies by income category (EWS/LIG/MIG).",
+    "apply_url": "https://pmaymis.gov.in",
+    "verified": false,
+    "application_process": "Apply online at pmaymis.gov.in or at your Urban Local Body (ULB) office. For CLSS, apply through your lending institution (bank/HFC).",
+    "helpline": "PMAY-U helpline: 1800-11-3377 / 1800-11-3388"
+  },
+  {
+    "id": "sbm_g",
+    "name": "Swachh Bharat Mission-Gramin",
+    "category": "Housing and Sanitation",
+    "description": "Rural sanitation.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "rural",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details"
+    ],
+    "benefits": "Incentive of ₹12,000 per household for construction of an individual household toilet.",
+    "apply_url": "https://sbm.gov.in/sbmReport/home.aspx",
+    "verified": false,
+    "application_process": "Apply through your Gram Panchayat. The incentive is transferred directly to the beneficiary's bank account after verification of toilet construction.",
+    "helpline": "Swachh Bharat Helpline: 1969 / 1800-1800-404"
+  },
+  {
+    "id": "sbm_u",
+    "name": "Swachh Bharat Mission-Urban",
+    "category": "Housing and Sanitation",
+    "description": "Urban sanitation and waste management.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Aadhaar card",
+      "Bank passbook / account details",
+      "Photograph of applicant and toilet construction site",
+      "Electricity bill / address proof"
+    ],
+    "benefits": "Incentive subsidy of up to ₹4,000 to ₹10,000 (varying with central/state share) for construction of Individual Household Latrines (IHHL) in urban areas, community toilets, and municipal solid waste management support.",
+    "apply_url": "https://swachhbharaturban.gov.in",
+    "verified": false,
+    "application_process": "Apply online at sbmurban.org or swachhbharaturban.gov.in under the IHHL portal or apply via local Urban Local Body (ULB) / Municipality office.",
+    "helpline": "Swachh Bharat Helpline: 1969"
+  },
+  {
+    "id": "jal_jeevan",
+    "name": "Jal Jeevan Mission",
+    "category": "Housing and Sanitation",
+    "description": "Household tap-water connections.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Household identity proof / electricity bill / Gram Panchayat village residence record (as required by local Village Water & Sanitation Committee)"
+    ],
+    "benefits": "Functional household tap-water connection (FHTC) providing safe and adequate drinking water to every rural household.",
+    "apply_url": "https://jaljeevanmission.gov.in",
+    "verified": false,
+    "application_process": "Apply through your Gram Panchayat Water and Sanitation Committee (VWSC) or Pani Samiti. Implementation is through state governments and Gram Panchayats.",
+    "helpline": "Department of Drinking Water & Sanitation: 011-24362705"
+  },
+  {
+    "id": "amrut",
+    "name": "AMRUT / Atal Mission for Rejuvenation and Urban Transformation",
+    "category": "Housing and Sanitation",
+    "description": "Urban water and infrastructure development.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Urban rejuvenation program providing universal coverage of water supply, sewerage networks, storm water drainage, urban green spaces, and non-motorized urban transport in designated mission cities.",
+    "apply_url": "https://amrut.gov.in",
+    "verified": false,
+    "application_process": "City-wide urban infrastructure scheme executed through Urban Local Bodies (ULBs) and state housing and urban affairs departments.",
+    "helpline": "MoHUA Helpline: 011-23062377"
+  },
+  {
+    "id": "pm_svanidhi",
+    "name": "PM SVANidhi",
+    "category": "Housing and Sanitation",
+    "description": "Working-capital loans for street vendors.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "street vendor"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Certificate of vending / Letter of recommendation from ULB/TVC"
+    ],
+    "benefits": "Working capital loan: ₹10,000 (first term), ₹20,000 (second term), ₹50,000 (third term). Interest subsidy of 7% per annum. No collateral required. Digital transactions incentivised.",
+    "apply_url": "https://pmsvanidhi.mohua.gov.in",
+    "verified": false,
+    "application_process": "Apply online at pmsvanidhi.mohua.gov.in or through lending institutions (banks, MFIs, SFBs). Eligible street vendors must have a certificate of vending or letter of recommendation.",
+    "helpline": "PM SVANidhi helpline: 1800-11-1979"
+  },
+  {
+    "id": "samagra_shiksha",
+    "name": "Samagra Shiksha",
+    "category": "Education",
+    "description": "School education from pre-primary through senior secondary levels.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Birth certificate / Age proof",
+      "Aadhaar card of child/parents",
+      "Address proof (for school neighborhood admission)"
+    ],
+    "benefits": "Universal access to school education from pre-school to senior secondary; covers free textbooks, uniforms, ICT labs, vocational education, and inclusive education for children with special needs.",
+    "apply_url": "https://samagrashiksha.education.gov.in",
+    "verified": false,
+    "application_process": "Implemented through government and government-aided schools across India; admissions done via local school enrolment drives.",
+    "helpline": "Department of School Education: 011-23383202"
+  },
+  {
+    "id": "nmmss",
+    "name": "National Means-cum-Merit Scholarship Scheme",
+    "category": "Education",
+    "description": "Support for eligible school students.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details",
+      "Income certificate (family income below ₹3.5 lakh per annum)",
+      "Class 8 mark sheet"
+    ],
+    "benefits": "Scholarship of ₹12,000 per annum (₹1,000 per month) for meritorious students from economically weaker sections studying in Classes 9–12 in government schools.",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Apply through the National Scholarship Portal (scholarships.gov.in). Students must pass the NMMS examination conducted by states/UTs.",
+    "helpline": "NSP Helpline: 0120-6619540"
+  },
+  {
+    "id": "post_matric",
+    "name": "Post-Matric Scholarship schemes",
+    "category": "Education",
+    "description": "Support for students from designated social categories.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Caste/community certificate",
+      "Income certificate",
+      "Bank account details",
+      "Previous year marksheet"
+    ],
+    "benefits": "Scholarships for eligible students from SC, ST, OBC, and minority communities studying from Class 11 onwards, including vocational and professional courses.",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Apply online through the National Scholarship Portal (scholarships.gov.in).",
+    "helpline": "NSP Helpline: 0120-6619540"
+  },
+  {
+    "id": "top_class",
+    "name": "Top Class Education Scheme",
+    "category": "Education",
+    "description": "Higher-education support for eligible SC students.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": [
+        "SC"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "Caste certificate (SC/ST)",
+      "Income certificate (family income up to ₹8 lakh p.a.)",
+      "Admission letter from notified institution",
+      "Fee receipt / fee structure",
+      "Bank account details (linked with Aadhaar)"
+    ],
+    "benefits": "Full tuition fee and non-refundable charges, living expenses stipend of ₹3,000 per month, books and stationery allowance of ₹5,000 per annum, and latest computer/laptop grant of ₹45,000 one-time for SC/ST students studying in notified top institutions (IITs, IIMs, NITs, AIIMS, etc.).",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Apply online through the National Scholarship Portal (NSP) at scholarships.gov.in under the Ministry of Social Justice and Empowerment / Tribal Affairs section.",
+    "helpline": "NSP Helpline: 0120-6619540"
+  },
+  {
+    "id": "overseas_scholarship",
+    "name": "National Overseas Scholarship",
+    "category": "Education",
+    "description": "Overseas study support for eligible candidates.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Caste / Category certificate",
+      "Family income certificate (income ceiling ₹8 lakh p.a.)",
+      "Valid Passport and Visa",
+      "Unconditional offer letter from accredited foreign university",
+      "Qualifying exam score cards (GRE/GMAT/IELTS/TOEFL)",
+      "Mark sheets / Degree certificates"
+    ],
+    "benefits": "Financial assistance covering annual tuition fees, maintenance allowance ($15,400 for USA/other countries, GBP 9,900 for UK), contingency allowance, visa fees, medical insurance, and economy class air passage for low-income SC, De-notified Nomadic and Semi-Nomadic Tribes, Landless Agricultural Labourers and Traditional Artisans pursuing Master's or Ph.D. abroad.",
+    "apply_url": "https://nosmsje.gov.in",
+    "verified": false,
+    "application_process": "Apply online on the official NOS portal (nosmsje.gov.in) when applications open annually.",
+    "helpline": "Social Justice Helpline: 011-23382391"
+  },
+  {
+    "id": "pm_poshan",
+    "name": "PM POSHAN",
+    "category": "Education",
+    "description": "School meal programme.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "School enrollment / admission record",
+      "Aadhaar card (or student ID)"
+    ],
+    "benefits": "Free mid-day meal (cooked hot food) for children studying in Classes 1–8 in government and government-aided schools.",
+    "apply_url": "https://pmposhan.education.gov.in",
+    "verified": false,
+    "application_process": "Children enrolled in eligible government or government-aided schools automatically receive meals. No separate application is required.",
+    "helpline": "Department of School Education Helpline: 011-23383202"
+  },
+  {
+    "id": "nsp",
+    "name": "National Scholarship Portal",
+    "category": "Education",
+    "description": "A common platform for many Central and State scholarships.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Student identity card / Bonafide student certificate",
+      "Bank passbook / account details (Aadhaar seeded)",
+      "Income certificate",
+      "Caste / Community certificate (if applying under reserved category)",
+      "Previous academic qualifying marksheets"
+    ],
+    "benefits": "Single platform to access and apply for multiple Central and State Government scholarships.",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Register and apply at scholarships.gov.in. Select the relevant scholarship scheme and submit required documents online.",
+    "helpline": "NSP Helpline: 0120-6619540"
+  },
+  {
+    "id": "pm_usha",
+    "name": "PM-USHA",
+    "category": "Education",
+    "description": "Support for higher-education institutions.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Strategic funding to state higher educational institutions to improve quality, research, access, equity, and state-level higher education accreditation and infrastructure.",
+    "apply_url": "https://pmusha.education.gov.in",
+    "verified": false,
+    "application_process": "Institutional grant scheme submitted by State Higher Education Councils (SHEC) and universities to the Ministry of Education.",
+    "helpline": "PM-USHA Desk: 011-23382298"
+  },
+  {
+    "id": "pm_shri",
+    "name": "PM SHRI Schools",
+    "category": "Education",
+    "description": "Development of selected model schools.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Standard school enrollment documents as per KV, JNV, or State government school admission rules."
+    ],
+    "benefits": "Upgradation of over 14,500 schools into exemplary institutions showcasing the National Education Policy 2020 with smart classrooms, laboratories, pedagogy innovation, and green campus standards.",
+    "apply_url": "https://pmshrischools.education.gov.in",
+    "verified": false,
+    "application_process": "Schools are selected by challenge method; students gain admission through standard school enrolment processes of the selected PM SHRI schools.",
+    "helpline": "PM SHRI Helpdesk: 011-23383202"
+  },
+  {
+    "id": "shreshta",
+    "name": "SHRESHTA",
+    "category": "Education",
+    "description": "Educational opportunities for eligible SC students.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": [
+        "SC"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "SC caste certificate",
+      "Class 8 mark sheet",
+      "Income certificate"
+    ],
+    "benefits": "Residential school education in quality private schools for meritorious SC students from Classes 9–12.",
+    "apply_url": "https://shreshta.socialjustice.gov.in",
+    "verified": false,
+    "application_process": "Apply through the SHRESHTA portal (shreshta.socialjustice.gov.in) after the entrance examination notification.",
+    "helpline": "NTA / SHRESHTA Helpline: 011-40759000"
+  },
+  {
+    "id": "pre_matric",
+    "name": "Pre-Matric Scholarships",
+    "category": "Social Justice",
+    "description": "Scholarships for SC, ST, OBC, minority and other eligible students.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "student"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Caste/community certificate",
+      "Income certificate",
+      "Bank account details",
+      "School enrolment certificate"
+    ],
+    "benefits": "Scholarships for students from SC, ST, OBC, minority, and other eligible categories studying in Classes 1–10 to prevent dropout.",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Apply online through the National Scholarship Portal (scholarships.gov.in) after registering.",
+    "helpline": "Social Justice / NSP Helpdesk: 0120-6619540"
+  },
+  {
+    "id": "mgnregs",
+    "name": "Mahatma Gandhi National Rural Employment Guarantee Scheme (MGNREGS)",
+    "category": "Employment and Skills",
+    "description": "Guaranteed rural wage employment, subject to eligibility.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "rural",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank/post office account details",
+      "Job card (issued by Gram Panchayat)"
+    ],
+    "benefits": "Guarantee of 100 days of unskilled wage employment per household per financial year. Wages are paid at the notified statutory minimum wage for agricultural labourers in the state. Employment must be provided within 15 days of application, failing which an unemployment allowance is due.",
+    "apply_url": "https://nregs.nic.in",
+    "verified": false,
+    "application_process": "Apply for a Job Card at your Gram Panchayat. Once you hold a Job Card, submit a written application for work to the Gram Panchayat or Programme Officer at least 14 days in advance.",
+    "helpline": "MGNREGS helpline: 1800-11-0707"
+  },
+  {
+    "id": "pmkvy",
+    "name": "Pradhan Mantri Kaushal Vikas Yojana",
+    "category": "Employment and Skills",
+    "description": "Skill training and certification.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details",
+      "Passport-size photograph"
+    ],
+    "benefits": "Free short-term skill training (duration: 150–300+ hours) aligned with industry-recognised qualification packs. Includes placement assistance and a monetary reward/stipend for trainees from certain categories. A nationally recognised certificate is issued on successful assessment.",
+    "apply_url": "https://www.pmkvyofficial.org",
+    "verified": false,
+    "application_process": "Register online at skillindiadigital.gov.in or locate a nearby PMKVY Training Centre (TC) affiliated with the Sector Skill Council. Walk-in enrolment is also available at training centres.",
+    "helpline": "Skill India helpline: 1800-123-9626"
+  },
+  {
+    "id": "ddugky",
+    "name": "Deen Dayal Upadhyaya Grameen Kaushalya Yojana",
+    "category": "Employment and Skills",
+    "description": "Rural youth skill development.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "rural",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Age proof",
+      "Educational certificates",
+      "Bank account details"
+    ],
+    "benefits": "Free residential skill training for rural youth (15–35 years). Includes placement assistance with minimum wage guarantee for placed candidates.",
+    "apply_url": "https://ddugky.gov.in",
+    "verified": false,
+    "application_process": "Contact your Block or District Mission Management Unit (BMMU/DMMU) or registered Project Implementing Agency (PIA).",
+    "helpline": "DDU-GKY helpline: 1800-180-5999"
+  },
+  {
+    "id": "naps",
+    "name": "National Apprenticeship Promotion Scheme",
+    "category": "Employment and Skills",
+    "description": "Apprenticeship support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Educational qualification certificates"
+    ],
+    "benefits": "Government reimburses 25% of prescribed stipend (up to ₹1,500/month) to the employer for each apprentice. Apprentices gain industry experience and a nationally recognised certificate.",
+    "apply_url": "https://www.apprenticeshipindia.org",
+    "verified": false,
+    "application_process": "Register as an apprentice at apprenticeshipindia.org or through the National Apprenticeship Promotion Scheme portal.",
+    "helpline": "Apprenticeship Portal Toll Free: 1800-419-0960"
+  },
+  {
+    "id": "pm_vishwakarma",
+    "name": "PM Vishwakarma",
+    "category": "Employment and Skills",
+    "description": "Training, tools, credit, and marketing support for traditional artisans.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "artisan"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Aadhaar-linked mobile number",
+      "Bank account details",
+      "Proof of trade/craft"
+    ],
+    "benefits": "Recognition as Vishwakarma; up to 5 days of basic training with ₹500/day stipend; advanced skill training; toolkit incentive of up to ₹15,000; collateral-free credit support at concessional rate of 5% (₹1 lakh in first tranche, ₹2 lakh in second); digital transaction incentive and market linkage support.",
+    "apply_url": "https://pmvishwakarma.gov.in",
+    "verified": false,
+    "application_process": "Apply online at pmvishwakarma.gov.in or through the nearest Common Service Centre (CSC). Registration is done via Gram Panchayat / Urban Local Body facilitation.",
+    "helpline": "PM Vishwakarma helpline: 18002677777"
+  },
+  {
+    "id": "pm_daksh",
+    "name": "PM-DAKSH",
+    "category": "Employment and Skills",
+    "description": "Skill development and entrepreneurship support for eligible disadvantaged groups.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Caste certificate (SC/OBC/DNT)",
+      "Bank account details"
+    ],
+    "benefits": "Free skill development training for SC, OBC, DNT, EBC, and sanitation workers. Placement assistance and stipend during training.",
+    "apply_url": "https://pmdaksh.dosje.gov.in",
+    "verified": false,
+    "application_process": "Apply online at pmdaksh.dosje.gov.in or through the implementing Training Partner.",
+    "helpline": "PM-DAKSH Toll Free: 1800-11-0396"
+  },
+  {
+    "id": "startup_india",
+    "name": "Startup India",
+    "category": "Business",
+    "description": "Support for recognised startups.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Certificate of Incorporation / Partnership deed",
+      "Details of directors/partners",
+      "PAN of the entity",
+      "Business description and innovation details"
+    ],
+    "benefits": "Income tax exemption for 3 years; self-certification under 6 labour and 3 environment laws; easier winding up; access to Fund of Funds, Startup India Seed Fund, and credit guarantee schemes.",
+    "apply_url": "https://www.startupindia.gov.in",
+    "verified": false,
+    "application_process": "Apply for DPIIT recognition at startupindia.gov.in. Recognition is granted online within 2 working days after application review.",
+    "helpline": "Startup India helpline: 1800-115-565"
+  },
+  {
+    "id": "standup_india",
+    "name": "Stand-Up India",
+    "category": "Business",
+    "description": "Bank loans for eligible SC/ST entrepreneurs and women entrepreneurs.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "PAN card",
+      "Caste certificate (for SC/ST)",
+      "Project report",
+      "Bank account details"
+    ],
+    "benefits": "Bank loan between ₹10 lakh and ₹1 crore for setting up a greenfield enterprise. For SC/ST borrowers and women entrepreneurs.",
+    "apply_url": "https://www.standupmitra.in",
+    "verified": false,
+    "application_process": "Apply online at standupmitra.in or at any scheduled commercial bank. The loan covers 75% of the project cost including working capital.",
+    "helpline": "Stand-Up India helpline: 1800-180-1111"
+  },
+  {
+    "id": "mudra",
+    "name": "Pradhan Mantri MUDRA Yojana",
+    "category": "Business",
+    "description": "Micro-enterprise loans for micro and small businesses.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card / identity proof",
+      "Address proof",
+      "Business plan or activity details",
+      "Bank account details",
+      "Passport-size photographs"
+    ],
+    "benefits": "Collateral-free loans for non-farm micro and small enterprises: Shishu (up to ₹50,000), Kishore (₹50,001–₹5 lakh), Tarun (₹5 lakh–₹10 lakh). Available through scheduled commercial banks, MFIs, and NBFCs.",
+    "apply_url": "https://www.mudra.org.in",
+    "verified": false,
+    "application_process": "Apply at any bank branch, NBFC, or MFI offering MUDRA loans, or apply online at mudra.org.in / udyamimitra.in. Submit the MUDRA application form with supporting documents.",
+    "helpline": "MUDRA helpline: 1800-180-1111 / 1800-11-0001"
+  },
+  {
+    "id": "pmegp",
+    "name": "Prime Minister's Employment Generation Programme",
+    "category": "Business",
+    "description": "Subsidy-linked finance for new micro-enterprises.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "PAN card",
+      "Educational qualification certificates",
+      "Special category certificate (if applicable: SC/ST/OBC/minority/women/ex-serviceman/differently-abled)",
+      "Project report"
+    ],
+    "benefits": "Subsidy (Margin Money) of 15–35% of project cost (higher for rural areas and special categories) for setting up new micro-enterprises. Project cost: up to ₹50 lakh (manufacturing) / ₹20 lakh (service).",
+    "apply_url": "https://kviconline.gov.in/pmegpeportal",
+    "verified": false,
+    "application_process": "Apply online at kviconline.gov.in/pmegpeportal or at the KVIC/KVIB/DIC office. After application, interview at District Level Task Force (DLTFC), bank sanction, and margin money release.",
+    "helpline": "KVIC helpline: 1800-3000-0888"
+  },
+  {
+    "id": "pmjdy",
+    "name": "Pradhan Mantri Jan-Dhan Yojana",
+    "category": "Banking and Pensions",
+    "description": "Basic bank accounts and financial inclusion.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card (mandatory for DBT benefits)",
+      "OR any officially valid document (OVD): Voter ID, Driving licence, PAN card, NREGA Job Card",
+      "Passport-size photograph"
+    ],
+    "benefits": "Zero-balance savings account with a RuPay debit card. Free accidental insurance cover of ₹2 lakh (₹1 lakh for accounts opened before 28 Aug 2018). Life insurance cover of ₹30,000. Overdraft facility up to ₹10,000 for eligible account holders. Access to Direct Benefit Transfer (DBT) from government schemes.",
+    "apply_url": "https://www.pmjdy.gov.in",
+    "verified": false,
+    "application_process": "Visit any bank branch or Business Correspondent (BC) / Banking Mitra with identity proof. Fill in the account opening form. For small accounts, self-certification of identity is acceptable.",
+    "helpline": "PMJDY helpline: 1800-11-0001 / 1800-180-1111"
+  },
+  {
+    "id": "pmjjby",
+    "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+    "category": "Banking and Pensions",
+    "description": "Low-cost life insurance.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Savings bank account",
+      "Aadhaar card",
+      "Consent-cum-declaration form"
+    ],
+    "benefits": "Life insurance cover of ₹2 lakh on death due to any cause. Annual premium of ₹436 (auto-debited from linked bank account).",
+    "apply_url": "https://jansuraksha.gov.in/Forms-PMJJBY.aspx",
+    "verified": false,
+    "application_process": "Enrol through your bank branch or via net banking / mobile banking. The premium is auto-debited from the linked savings account annually on 1 June.",
+    "helpline": "Jan Suraksha helpline: 1800-180-1111"
+  },
+  {
+    "id": "pmsby",
+    "name": "Pradhan Mantri Suraksha Bima Yojana",
+    "category": "Banking and Pensions",
+    "description": "Accident insurance.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Savings bank account",
+      "Aadhaar card",
+      "Consent-cum-declaration form"
+    ],
+    "benefits": "Accident insurance: ₹2 lakh for accidental death or total disability; ₹1 lakh for partial disability. Annual premium of ₹20.",
+    "apply_url": "https://jansuraksha.gov.in/Forms-PMSBY.aspx",
+    "verified": false,
+    "application_process": "Enrol through your bank branch or via net banking / mobile banking. The premium of ₹20 is auto-debited from the linked account annually on 1 June.",
+    "helpline": "Jan Suraksha helpline: 1800-180-1111"
+  },
+  {
+    "id": "apy",
+    "name": "Atal Pension Yojana",
+    "category": "Banking and Pensions",
+    "description": "Pension scheme for eligible subscribers.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Savings bank account / post office savings account",
+      "Aadhaar card",
+      "Mobile number"
+    ],
+    "benefits": "Guaranteed minimum monthly pension of ₹1,000, ₹2,000, ₹3,000, ₹4,000, or ₹5,000 (subscriber's choice) after age 60. On subscriber's death, the spouse receives the same pension; on both deaths, the accumulated pension wealth is returned to the nominee.",
+    "apply_url": "https://www.npscra.nsdl.co.in/scheme-details.php",
+    "verified": false,
+    "application_process": "Open an APY account at any bank or post office branch, or through net banking / mobile banking. Fill the APY subscriber registration form and set up auto-debit of contributions.",
+    "helpline": "NPS/APY helpline: 1800-110-069"
+  },
+  {
+    "id": "nps",
+    "name": "National Pension System",
+    "category": "Banking and Pensions",
+    "description": "Retirement savings.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "PAN card",
+      "Bank account details"
+    ],
+    "benefits": "Market-linked pension savings with tax benefits under Sections 80C and 80CCD(1B) of the Income Tax Act. Flexible investment options; partial withdrawal allowed for specific purposes after 3 years.",
+    "apply_url": "https://enps.nsdl.com",
+    "verified": false,
+    "application_process": "Register online at eNPS portal (enps.nsdl.com) or at a Point of Presence (PoP) such as a bank branch.",
+    "helpline": "NPS helpline: 1800-110-069"
+  },
+  {
+    "id": "ssy",
+    "name": "Sukanya Samriddhi Yojana",
+    "category": "Banking and Pensions",
+    "description": "Savings account for eligible girl children.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Girl child's birth certificate",
+      "Parent's / guardian's Aadhaar card and PAN card",
+      "Address proof"
+    ],
+    "benefits": "High-interest savings scheme (interest rate set quarterly by Government; 8.2% for Q1 FY 2024-25). Tax benefits under Section 80C. Maturity amount and interest are exempt from tax. Account matures 21 years from the date of opening or on the girl's marriage after age 18.",
+    "apply_url": "https://www.indiapost.gov.in/Financial/Pages/Content/Sukanya-Samridhi-Account.aspx",
+    "verified": false,
+    "application_process": "Open the account at any post office or authorised bank. A parent or legal guardian can open one account per girl child (maximum two accounts per family).",
+    "helpline": "India Post / National Savings Institute: 1800-266-6868"
+  },
+  {
+    "id": "ppf",
+    "name": "Public Provident Fund",
+    "category": "Banking and Pensions",
+    "description": "Long-term government-backed savings.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card / identity proof",
+      "PAN card",
+      "Address proof"
+    ],
+    "benefits": "Government-backed savings with tax deduction under Section 80C (up to ₹1.5 lakh per year). Interest rate set quarterly by the Government. Interest and maturity proceeds are exempt from tax. Loan facility from 3rd to 6th year; partial withdrawal from 7th year.",
+    "apply_url": "https://www.indiapost.gov.in/Financial/Pages/Content/PPF.aspx",
+    "verified": false,
+    "application_process": "Open the account at any post office or authorised bank branch. Minimum deposit ₹500 per year; maximum ₹1.5 lakh per year.",
+    "helpline": "India Post / Bank Helpdesk: 1800-266-6868"
+  },
+  {
+    "id": "scss",
+    "name": "Senior Citizens' Savings Scheme",
+    "category": "Banking and Pensions",
+    "description": "Savings option for senior citizens.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": 60,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "PAN card",
+      "Age proof (passport, voter ID, birth certificate)",
+      "Passbook/bank details"
+    ],
+    "benefits": "High-interest savings scheme for senior citizens (8.2% for Q1 FY 2024-25). Quarterly interest payout. Tax benefit under Section 80C.",
+    "apply_url": "https://www.indiapost.gov.in/Financial/Pages/Content/SCSS.aspx",
+    "verified": false,
+    "application_process": "Open the account at any post office or authorised bank branch. Maximum deposit ₹30 lakh per individual.",
+    "helpline": "India Post / Bank Helpdesk: 1800-266-6868"
+  },
+  {
+    "id": "kvp",
+    "name": "Kisan Vikas Patra",
+    "category": "Banking and Pensions",
+    "description": "Government savings instrument.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card / identity proof",
+      "PAN card (for investments ≥ ₹50,000)"
+    ],
+    "benefits": "Doubles the invested amount in a fixed period (currently approximately 115 months / 9 years 7 months). Government-backed; available at post offices and authorised banks.",
+    "apply_url": "https://www.indiapost.gov.in/Financial/Pages/Content/KVP.aspx",
+    "verified": false,
+    "application_process": "Purchase KVP certificates at any post office or authorised bank branch. Minimum investment ₹1,000.",
+    "helpline": "India Post Toll Free: 1800-266-6868"
+  },
+  {
+    "id": "nsap",
+    "name": "National Social Assistance Programme",
+    "category": "Banking and Pensions",
+    "description": "Pensions and assistance for eligible elderly, widows, and persons with disabilities.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Age proof / disability certificate / widow certificate",
+      "BPL card or income certificate",
+      "Bank account details"
+    ],
+    "benefits": "Monthly social assistance pension: IGNOAPS (elderly ≥ 60 yrs: ₹200–₹500/month), IGNWPS (widows: ₹300/month), IGNDPS (severe disability: ₹300/month), NFBS (bereaved family on death of primary breadwinner: ₹20,000 one-time).",
+    "apply_url": "https://nsap.nic.in",
+    "verified": false,
+    "application_process": "Apply at the Gram Panchayat or Urban Local Body / District Social Welfare Office.",
+    "helpline": "Ministry of Rural Development Helpline: 011-23070129"
+  },
+  {
+    "id": "bbbp",
+    "name": "Beti Bachao, Beti Padhao",
+    "category": "Women and Children",
+    "description": "Education and welfare of girls.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Child birth certificate",
+      "Parent identity proof (Aadhaar card)",
+      "Bank / Post office account passbook (if opening Sukanya Samriddhi account)"
+    ],
+    "benefits": "Awareness campaigns, community mobilisation, and incentive programmes to improve the child sex ratio and promote girl-child education. No direct cash transfer; benefits are delivered through local initiatives.",
+    "apply_url": "https://wcd.nic.in/schemes/beti-bachao-beti-padhao-scheme",
+    "verified": false,
+    "application_process": "BBBP is primarily an advocacy and district-level convergence campaign to improve Child Sex Ratio and promote girls' education. Families can participate through local Anganwadi Centres, district health offices, and by enrolling girls in school and Sukanya Samriddhi accounts.",
+    "helpline": "Women & Child Development Helpline: 1098 / 181"
+  },
+  {
+    "id": "mission_shakti",
+    "name": "Mission Shakti",
+    "category": "Women and Children",
+    "description": "Women's safety, security, and empowerment.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Relevant police/medical reports (for Sambal emergency intervention)",
+      "Bank account details (for Samarthya maternity/skill interventions)"
+    ],
+    "benefits": "Women's safety, empowerment, and rehabilitation services. Includes SAMBAL (safety and security) and SAMARTHYA (empowerment) sub-schemes.",
+    "apply_url": "https://wcd.nic.in/schemes/mission-shakti",
+    "verified": false,
+    "helpline": "Women Helpline: 181",
+    "application_process": "Access assistance via One Stop Centres (OSC), Women Helplines (181), or through local District Hubs for Empowerment of Women (DHEW) and Anganwadi centres."
+  },
+  {
+    "id": "osc",
+    "name": "One Stop Centre Scheme",
+    "category": "Women and Children",
+    "description": "Assistance for women affected by violence.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Identity proof (Aadhaar / voter ID, if available; no document is mandatory in medical/police emergencies)"
+    ],
+    "benefits": "Integrated support services for women affected by violence: medical, legal, psychological, shelter, and police assistance under one roof.",
+    "apply_url": "https://wcd.nic.in/schemes/one-stop-centre-scheme-0",
+    "verified": false,
+    "application_process": "Contact the nearest One Stop Centre (Sakhi Centre). Helpline 181 connects women to the nearest OSC.",
+    "helpline": "181 (Women Helpline)"
+  },
+  {
+    "id": "women_helpline",
+    "name": "Women Helpline Scheme",
+    "category": "Women and Children",
+    "description": "Support and referral services.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "No prior documentation required to access emergency toll-free crisis intervention"
+    ],
+    "benefits": "24x7 emergency support, counselling, referral to police, legal, medical, and other services.",
+    "apply_url": "https://wcd.nic.in/schemes/women-helpline-scheme",
+    "verified": false,
+    "application_process": "Dial 181 from any phone.",
+    "helpline": "181"
+  },
+  {
+    "id": "ujjwala",
+    "name": "Ujjwala Scheme",
+    "category": "Women and Children",
+    "description": "LPG connections for eligible households.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": "female",
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "BPL ration card / PMUY eligibility proof",
+      "Bank account details",
+      "Passport-size photograph"
+    ],
+    "benefits": "Free LPG connection (security deposit waived) for eligible households. First refill and hotplate are provided free of cost. Reduces indoor air pollution and improves health outcomes for women.",
+    "apply_url": "https://www.pmuy.gov.in",
+    "verified": false,
+    "application_process": "Apply at the nearest LPG distributor (IOC, BPCL, HPCL) with the KYC form. Eligible categories include BPL households, PMAY-G beneficiaries, MGNREGS card holders, SC/ST households, forest dwellers, and others listed under PMUY 2.0.",
+    "helpline": "PMUY helpline: 1906"
+  },
+  {
+    "id": "mission_vatsalya",
+    "name": "Mission Vatsalya",
+    "category": "Women and Children",
+    "description": "Child protection and welfare.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Child's birth certificate / hospital birth record",
+      "Guardian/parent identity card (Aadhaar card)",
+      "Income certificate / proof of destitution (where applicable)",
+      "Child Welfare Committee (CWC) referral or order (for institutional care)"
+    ],
+    "benefits": "Child protection services, institutional and non-institutional care, rehabilitation, and welfare for children in difficult circumstances.",
+    "apply_url": "https://wcd.nic.in/schemes/mission-vatsalya",
+    "verified": false,
+    "application_process": "Contact the District Child Protection Unit (DCPU) or Child Welfare Committee (CWC) in your district.",
+    "helpline": "National Childline Helpline: 1098"
+  },
+  {
+    "id": "poshan_2",
+    "name": "Saksham Anganwadi and Poshan 2.0",
+    "category": "Women and Children",
+    "description": "Nutrition and early-childhood services.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card of mother/beneficiary",
+      "Child birth certificate / MCP card (Mother and Child Protection Card)"
+    ],
+    "benefits": "Nutrition supplementation, growth monitoring, health check-ups, and referral services for children (0–6 years), pregnant women, and lactating mothers through Anganwadi Centres.",
+    "apply_url": "https://icds-wcd.nic.in",
+    "verified": false,
+    "application_process": "Register at your nearest Anganwadi Centre.",
+    "helpline": "Poshan helpline: 1800-11-5570"
+  },
+  {
+    "id": "palna",
+    "name": "Palna Scheme",
+    "category": "Women and Children",
+    "description": "Childcare support through crèches.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Child's birth certificate",
+      "Mother's identity proof",
+      "Working status proof"
+    ],
+    "benefits": "Subsidised crèche services for children of working mothers (6 months to 6 years). Includes nutrition, healthcare, and education support.",
+    "apply_url": "https://wcd.nic.in/schemes/palna",
+    "verified": false,
+    "application_process": "Apply at the nearest Palna crèche centre. Contact your Women and Child Development Department.",
+    "helpline": "Ministry of Women and Child Development: 011-23386423"
+  },
+  {
+    "id": "nfsa",
+    "name": "National Food Security Act",
+    "category": "Food and Social Welfare",
+    "description": "Subsidised food grains for eligible beneficiaries.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Ration card (issued by state government)",
+      "Aadhaar card (for eKYC at PDS shops)"
+    ],
+    "benefits": "Eligible households receive subsidised food grains: up to 5 kg per person per month at ₹3/kg (rice), ₹2/kg (wheat), ₹1/kg (coarse cereals). Antyodaya Anna Yojana (AAY) households receive 35 kg/month.",
+    "apply_url": "https://dfpd.gov.in",
+    "verified": false,
+    "application_process": "Apply for a ration card at the nearest Food & Civil Supplies Department or online through the state's food portal. Once a ration card is issued, collect entitlements from the designated Fair Price Shop.",
+    "helpline": "PDS helpline: 14445"
+  },
+  {
+    "id": "pmgkay",
+    "name": "Pradhan Mantri Garib Kalyan Anna Yojana",
+    "category": "Food and Social Welfare",
+    "description": "Food-grain support under the public distribution system.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Ration card",
+      "Aadhaar card"
+    ],
+    "benefits": "Free food grains (5 kg per person per month) to all NFSA beneficiaries under the Pradhan Mantri Garib Kalyan Anna Yojana.",
+    "apply_url": "https://dfpd.gov.in",
+    "verified": false,
+    "application_process": "Collect entitlements from your designated Fair Price Shop (PDS outlet) using your ration card and Aadhaar.",
+    "helpline": "National Food Security Portal Toll Free: 1967 / 1800-180-2087"
+  },
+  {
+    "id": "aay",
+    "name": "Antyodaya Anna Yojana",
+    "category": "Food and Social Welfare",
+    "description": "Support for the poorest households.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Antyodaya ration card",
+      "Aadhaar card"
+    ],
+    "benefits": "35 kg of food grains per household per month at heavily subsidised rates (₹3/kg rice, ₹2/kg wheat, ₹1/kg coarse cereals).",
+    "apply_url": "https://dfpd.gov.in",
+    "verified": false,
+    "application_process": "Apply for an Antyodaya ration card at the state Food & Civil Supplies Department. Eligibility is determined by the state government.",
+    "helpline": "National Food Security Portal Toll Free: 1967"
+  },
+  {
+    "id": "onorc",
+    "name": "One Nation One Ration Card",
+    "category": "Food and Social Welfare",
+    "description": "Portability of ration benefits across India.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Existing ration card",
+      "Aadhaar card linked to ration card"
+    ],
+    "benefits": "Portability of ration card entitlements across all states and UTs in India. Migrant workers can collect food grains from any PDS shop in the country.",
+    "apply_url": "https://nfsa.gov.in/portal/ONORCNR",
+    "verified": false,
+    "application_process": "Your existing ration card is automatically enabled for portability if your state is integrated with ONORC. Use the mera ration app or visit any PDS shop.",
+    "helpline": "PDS helpline: 14445"
+  },
+  {
+    "id": "pm_garib_kalyan_pkg",
+    "name": "PM Garib Kalyan packages",
+    "category": "Food and Social Welfare",
+    "description": "Various welfare measures for vulnerable groups.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Emergency welfare and relief package launched during COVID-19 pandemic providing food security, cash transfers to women Jan Dhan accounts, free LPG refills under PMUY, and insurance for healthcare workers.",
+    "apply_url": "https://dbtbharat.gov.in",
+    "verified": false,
+    "application_process": "Relief initiative administered directly to pre-existing verified beneficiary databases; currently succeeded by integrated welfare programs like PMGKAY.",
+    "helpline": "National DBT / MoF Helpdesk: 011-23095601"
+  },
+  {
+    "id": "dbt",
+    "name": "Direct Benefit Transfer",
+    "category": "Food and Social Welfare",
+    "description": "Electronic transfer of eligible benefits into bank accounts.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Aadhaar card",
+      "Bank account passbook (Aadhaar linked / NPCI seeded)"
+    ],
+    "benefits": "Direct electronic transfer of welfare subsidies and benefits directly into citizen bank accounts linked with Aadhaar, eliminating intermediaries and leakage.",
+    "apply_url": "https://dbtbharat.gov.in",
+    "verified": false,
+    "application_process": "Citizens ensure their Aadhaar is linked to their bank account and NPCI mapper; specific benefit enrolments take place through individual welfare scheme portals.",
+    "helpline": "DBT Helpdesk: 011-24361561"
+  },
+  {
+    "id": "pmgsy",
+    "name": "Pradhan Mantri Gram Sadak Yojana",
+    "category": "Rural Development",
+    "description": "Rural road connectivity.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Construction of all-weather road connectivity to unconnected rural habitations across India, enhancing economic opportunities and rural mobility.",
+    "apply_url": "https://pmgsy.nic.in",
+    "verified": false,
+    "application_process": "Infrastructure program executed by National Rural Infrastructure Development Agency (NRIDA) and State Rural Road Development Agencies (SRRDA).",
+    "helpline": "MoRD Rural Roads Helpline: 011-26716930"
+  },
+  {
+    "id": "daynrlm",
+    "name": "Deendayal Antyodaya Yojana-National Rural Livelihoods Mission",
+    "category": "Rural Development",
+    "description": "Self-help groups, women's SHGs and enterprise support for rural livelihoods.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": "rural",
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Bank account details"
+    ],
+    "benefits": "Support for women's self-help groups (SHGs): initial corpus fund, revolving fund, community investment support, skill training, and livelihood assistance. Access to low-cost credit through SHG-Bank linkage.",
+    "apply_url": "https://aajeevika.gov.in",
+    "verified": false,
+    "application_process": "Join or form a Self-Help Group (SHG) in your village. Contact your Block Mission Management Unit (BMMU) or Panchayat Raj Institution.",
+    "helpline": "DAY-NRLM helpline: 1800-180-5999"
+  },
+  {
+    "id": "rurban",
+    "name": "Shyama Prasad Mukherji Rurban Mission",
+    "category": "Rural Development",
+    "description": "Development of rural clusters.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Development of 300 Rurban clusters that have economic and social potential, delivering integrated rural services and economic amenities.",
+    "apply_url": "https://rurban.gov.in",
+    "verified": false,
+    "application_process": "District and cluster-level rural development mission implemented through state rural development departments.",
+    "helpline": "MoRD Helpline: 011-23382236"
+  },
+  {
+    "id": "pm_adarsh_gram",
+    "name": "Pradhan Mantri Adarsh Gram Yojana",
+    "category": "Rural Development",
+    "description": "Development of selected villages.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Integrated socio-economic development of villages having >50% Scheduled Caste population through convergence of basic infrastructure and welfare amenities.",
+    "apply_url": "https://adarshegram.gov.in",
+    "verified": false,
+    "application_process": "Village-level developmental scheme executed under PM-AJAY through District Magistrates and Gram Panchayats.",
+    "helpline": "Social Justice Helpline: 011-23382391"
+  },
+  {
+    "id": "sagy",
+    "name": "Sansad Adarsh Gram Yojana",
+    "category": "Rural Development",
+    "description": "Model village development.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Holistic transformation of identified model Gram Panchayats adopted by Members of Parliament to achieve physical and institutional infrastructure convergence.",
+    "apply_url": "https://saanjhi.gov.in",
+    "verified": false,
+    "application_process": "Community-driven development plan prepared and executed by the adopted Gram Panchayat and District Collectorate.",
+    "helpline": "MoRD Helpline: 011-23382236"
+  },
+  {
+    "id": "bharatnet",
+    "name": "BharatNet",
+    "category": "Rural Development",
+    "description": "Broadband connectivity for villages.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "High-speed broadband telecom infrastructure connecting all Gram Panchayats and rural habitations across India to support digital governance and connectivity.",
+    "apply_url": "https://bbnl.nic.in",
+    "verified": false,
+    "application_process": "Digital infrastructure initiative implemented by Bharat Broadband Network Limited (BBNL) and BSNL; access provided through local WiFi Choupal / FTTH connections.",
+    "helpline": "BBNL / DoT Helpline: 011-24361666"
+  },
+  {
+    "id": "aspirational_districts",
+    "name": "Aspirational Districts Programme",
+    "category": "Rural Development",
+    "description": "Development in selected underperforming districts.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Targeted transformation of 112 most backward districts in key sectors: health & nutrition, education, agriculture & water resources, financial inclusion & skill development, and basic infrastructure.",
+    "apply_url": "https://www.niti.gov.in/aspirational-districts-programme",
+    "verified": false,
+    "application_process": "District-level governance tracking framework driven by NITI Aayog; benefits converge into district residents through existing flagship schemes.",
+    "helpline": "NITI Aayog Helpdesk: 011-23096620"
+  },
+  {
+    "id": "pm_surya_ghar",
+    "name": "PM Surya Ghar: Muft Bijli Yojana",
+    "category": "Energy and Environment",
+    "description": "Rooftop solar support for households.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Electricity bill / consumer number",
+      "Bank account details"
+    ],
+    "benefits": "Subsidy for rooftop solar installation: up to ₹30,000 for 1 kW; up to ₹60,000 for 2 kW; up to ₹78,000 for 3 kW and above. Free electricity up to 300 units/month for eligible households.",
+    "apply_url": "https://pmsuryaghar.gov.in",
+    "verified": false,
+    "application_process": "Apply at pmsuryaghar.gov.in. Choose a registered vendor; subsidy is released through your DISCOM after inspection.",
+    "helpline": "PM Surya Ghar helpline: 1800-180-3333"
+  },
+  {
+    "id": "ujala",
+    "name": "UJALA",
+    "category": "Energy and Environment",
+    "description": "Energy-efficient LED bulbs and appliances.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Copy of latest electricity bill",
+      "Photo ID proof (Aadhaar card / voter card)",
+      "Cash / digital payment for subsidized energy-efficient appliances"
+    ],
+    "benefits": "Energy-efficient LED bulbs, tube lights, and fans at subsidised prices.",
+    "apply_url": "https://ujala.gov.in",
+    "verified": false,
+    "application_process": "Collect LED bulbs from designated DISCOM distribution points or empanelled shops against surrender of working incandescent/CFL bulbs.",
+    "helpline": "EESL Helpline: 011-45801260"
+  },
+  {
+    "id": "saubhagya",
+    "name": "Saubhagya",
+    "category": "Energy and Environment",
+    "description": "Electricity connections for households.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "BPL card (for free connection)"
+    ],
+    "benefits": "Free electricity connection for BPL households; ₹500 connection fee (payable in 10 instalments of ₹50) for APL households.",
+    "apply_url": "https://saubhagya.gov.in",
+    "verified": false,
+    "application_process": "Apply through your local DISCOM or state electricity distribution company office. Camp-mode connections are organised in unelectrified villages.",
+    "helpline": "Saubhagya helpline: 1800-121-5555"
+  },
+  {
+    "id": "fame",
+    "name": "FAME India",
+    "category": "Energy and Environment",
+    "description": "Promotion of electric and hybrid vehicles.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Aadhaar card of vehicle buyer",
+      "Vehicle registration and sales invoice details from authorized EV dealership"
+    ],
+    "benefits": "Upfront purchase incentive and subsidy support for electric vehicles (two-wheelers, three-wheelers, four-wheelers, and electric buses) and development of EV charging infrastructure.",
+    "apply_url": "https://fame2.heavyindustries.gov.in",
+    "verified": false,
+    "application_process": "Demand incentive is passed on directly to the buyer as a price reduction at the time of purchase by registered EV OEMs and dealers.",
+    "helpline": "Ministry of Heavy Industries: 011-23063347"
+  },
+  {
+    "id": "ncap",
+    "name": "National Clean Air Programme",
+    "category": "Energy and Environment",
+    "description": "Air-pollution reduction.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "National target to reduce particulate matter (PM2.5 and PM10) concentrations by 20% to 40% across non-attainment cities through air quality monitoring, EV adoption, and industrial emission control.",
+    "apply_url": "https://prana.cpcb.gov.in",
+    "verified": false,
+    "application_process": "Implemented through Central and State Pollution Control Boards and City Municipal Corporations; monitored via the PRANA portal.",
+    "helpline": "CPCB Helpdesk: 011-43102030"
+  },
+  {
+    "id": "clean_ganga",
+    "name": "National Mission for Clean Ganga / Namami Gange Programme",
+    "category": "Energy and Environment",
+    "description": "Ganga conservation and river-cleaning.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Comprehensive conservation mission to clean and rejuvenate River Ganga through sewage treatment infrastructure, riverfront development, afforestation, and public awareness.",
+    "apply_url": "https://nmcg.nic.in",
+    "verified": false,
+    "application_process": "Institutional mission executed by National Mission for Clean Ganga (NMCG) under Ministry of Jal Shakti.",
+    "helpline": "NMCG Contact: 011-23049500"
+  },
+  {
+    "id": "mission_life",
+    "name": "Mission LiFE",
+    "category": "Energy and Environment",
+    "description": "Environmentally responsible lifestyles.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Global mass movement led by India encouraging citizens to adopt sustainable, environmentally conscious lifestyle behaviors (energy saving, water conservation, single-use plastic reduction).",
+    "apply_url": "https://missionlife-moefcc.nic.in",
+    "verified": false,
+    "application_process": "Citizens can join the campaign, take environmental pledges, and track eco-friendly actions at missionlife-moefcc.nic.in.",
+    "helpline": "MoEFCC Contact: 011-24695262"
+  },
+  {
+    "id": "green_credit",
+    "name": "Green Credit Programme",
+    "category": "Energy and Environment",
+    "description": "Environmental activities and restoration.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Land ownership/usage rights documents (for plantation/water harvesting activities)",
+      "Applicant identity proof (Aadhaar / company registration)"
+    ],
+    "benefits": "Market-based mechanism incentivizing voluntary environmental actions (tree plantation, water management, sustainable agriculture, waste management) by issuing tradeable Green Credits.",
+    "apply_url": "https://moefcc.gov.in",
+    "verified": false,
+    "application_process": "Register on the Green Credit Portal (moefcc.gov.in / gcp-cpcb.in) and submit application with details of voluntary eco-restoration activity for verification by Indian Council of Forestry Research and Education (ICFRE).",
+    "helpline": "ICFRE / MoEFCC Helpdesk: 0135-2224855"
+  },
+  {
+    "id": "cgtmse",
+    "name": "Credit Guarantee Fund Scheme for Micro and Small Enterprises (CGTMSE)",
+    "category": "Business",
+    "description": "Collateral-free credit support and credit guarantees for eligible micro and small enterprises.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Business registration documents",
+      "PAN card",
+      "Aadhaar card",
+      "Financial statements",
+      "Project report"
+    ],
+    "benefits": "Credit guarantee cover of 75–85% (up to 90% for select categories) on collateral-free loans up to ₹5 crore for micro and small enterprises.",
+    "apply_url": "https://www.cgtmse.in",
+    "verified": false,
+    "application_process": "Apply for the loan at any Member Lending Institution (MLI) such as a scheduled commercial bank. The lending institution then applies for the CGTMSE guarantee cover.",
+    "helpline": "CGTMSE Toll Free: 1800-222-659"
+  },
+  {
+    "id": "startup_seed",
+    "name": "Startup India Seed Fund Scheme",
+    "category": "Business",
+    "description": "Early-stage startup support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "DPIIT Startup recognition certificate",
+      "Incorporation documents",
+      "Business plan"
+    ],
+    "benefits": "Funding support of up to ₹20 lakh for validation and ₹50 lakh for product development/commercialisation for early-stage startups.",
+    "apply_url": "https://www.startupindia.gov.in/content/sih/en/SISFS.html",
+    "verified": false,
+    "application_process": "Apply through incubators empanelled under the Startup India Seed Fund Scheme at startupindia.gov.in.",
+    "helpline": "Startup India Toll Free: 1800-115-565"
+  },
+  {
+    "id": "fund_of_funds",
+    "name": "Fund of Funds for Startups",
+    "category": "Business",
+    "description": "Indirect investment support.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Company incorporation certificate",
+      "DPIIT Startup Recognition certificate",
+      "Business pitch deck and financial statements"
+    ],
+    "benefits": "Venture capital corpus of ₹10,000 crore managed by SIDBI to invest in SEBI-registered Alternative Investment Funds (AIFs), which in turn invest equity capital into Indian startups.",
+    "apply_url": "https://www.startupindia.gov.in",
+    "verified": false,
+    "application_process": "Startups receive investments through SIDBI-partnered Venture Capital Funds / AIFs; details accessible via Startup India hub.",
+    "helpline": "Startup India Toll Free: 1800-115-565"
+  },
+  {
+    "id": "pli",
+    "name": "Production Linked Incentive schemes",
+    "category": "Business",
+    "description": "Incentives for selected manufacturing sectors.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Company incorporation details and GST registration",
+      "Audited financial statements and investment commitment proofs",
+      "Chartered Accountant / statutory auditor certificates for incremental sales & CAPEX"
+    ],
+    "benefits": "Financial incentives of 4% to 6% on incremental sales of goods manufactured in India across 14 key sectors (electronics, pharmaceuticals, telecom, auto, textiles, solar PV, etc.).",
+    "apply_url": "https://dpiit.gov.in",
+    "verified": false,
+    "application_process": "Apply through sector-specific Project Management Agencies (PMAs) like IFCI or SIDBI under designated window calls by relevant administrative ministries.",
+    "helpline": "DPIIT Helpdesk: 011-23061222"
+  },
+  {
+    "id": "nlp",
+    "name": "National Logistics Policy",
+    "category": "Business",
+    "description": "Logistics efficiency and infrastructure.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Policy framework to reduce logistics costs in India from ~13% to single digits through Unified Logistics Interface Platform (ULIP) and multimodal logistics parks.",
+    "apply_url": "https://dpiit.gov.in",
+    "verified": false,
+    "application_process": "Policy framework and digital integration platform for logistics service providers and industry stakeholders.",
+    "helpline": "Logistics Division / DPIIT: 011-23061222"
+  },
+  {
+    "id": "make_in_india",
+    "name": "Make in India",
+    "category": "Business",
+    "description": "Manufacturing and investment promotion.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Company registration, industrial license, and sector approvals (as applicable to the enterprise)"
+    ],
+    "benefits": "Investment facilitation, FDI liberalization, infrastructure development, and ease of doing business reforms to foster manufacturing and entrepreneurship in India.",
+    "apply_url": "https://www.makeinindia.com",
+    "verified": false,
+    "application_process": "Companies and entrepreneurs can explore investment opportunities, connect with Invest India facilitators at makeinindia.com.",
+    "helpline": "Invest India Desk: 011-23048155"
+  },
+  {
+    "id": "digital_india",
+    "name": "Digital India",
+    "category": "Business",
+    "description": "Digital infrastructure, services, and technology adoption.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Flagship initiative transforming India into a digitally empowered society through digital infrastructure (broadband, identity), digital services on demand (e-governance, digital payments), and digital literacy.",
+    "apply_url": "https://digitalindia.gov.in",
+    "verified": false,
+    "application_process": "Umbrella program spanning multiple e-governance initiatives; citizen services are accessible via individual portals (DigiLocker, UMANG, Aadhaar, UPI).",
+    "helpline": "MeitY Helpdesk: 011-24301851"
+  },
+  {
+    "id": "pm_ajay",
+    "name": "PM-AJAY",
+    "category": "Social Justice",
+    "description": "Development and employment support for Scheduled Castes.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": [
+        "SC"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "SC caste certificate",
+      "Bank account details"
+    ],
+    "benefits": "Scholarships, vocational training, income-generation activities, and village development support for SC communities.",
+    "apply_url": "https://socialjustice.gov.in",
+    "verified": false,
+    "application_process": "Apply through the respective sub-scheme components (PMAGY, NSFDC credit, PM-DAKSH for SC). Contact your District SC Welfare Office.",
+    "helpline": "Ministry of Social Justice and Empowerment: 011-23382391"
+  },
+  {
+    "id": "pm_janman",
+    "name": "PM-JANMAN",
+    "category": "Social Justice",
+    "description": "Support for Particularly Vulnerable Tribal Groups.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": [
+        "ST"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "ST certificate"
+    ],
+    "benefits": "Housing, road connectivity, clean drinking water, sanitation, mobile health and education services for Particularly Vulnerable Tribal Groups (PVTGs).",
+    "apply_url": "https://tribal.nic.in",
+    "verified": false,
+    "application_process": "Benefits are delivered through state tribal welfare departments. Contact your State Tribal Welfare Office or District Collector.",
+    "helpline": "Ministry of Tribal Affairs Helpline: 011-23388482"
+  },
+  {
+    "id": "dajgua",
+    "name": "Dharti Aaba Janjatiya Gram Utkarsh Abhiyan",
+    "category": "Social Justice",
+    "description": "Tribal village development.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [],
+    "benefits": "Saturation initiative for tribal villages covering ~5 crore tribal population across 63,000 villages with pucca houses, all-weather road connectivity, water supply, electricity, healthcare, and education infrastructure.",
+    "apply_url": "https://tribal.nic.in",
+    "verified": false,
+    "application_process": "Convergence-based government saturation mission implemented via Central Ministries and State Tribal Development Departments; no individual application needed.",
+    "helpline": "Ministry of Tribal Affairs: 011-23388482"
+  },
+  {
+    "id": "van_dhan",
+    "name": "Van Dhan Yojana",
+    "category": "Social Justice",
+    "description": "Tribal entrepreneurship and forest-produce value addition.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": [
+        "ST"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "ST certificate",
+      "Bank account details"
+    ],
+    "benefits": "Tribal entrepreneurs receive training, working capital, and market linkage for Minor Forest Produce (MFP) value addition through Van Dhan Vikas Kendras (VDVKs).",
+    "apply_url": "https://www.trifed.in/trifed/ShowContent.aspx?uid=19",
+    "verified": false,
+    "application_process": "Join or form a Van Dhan Self-Help Group. Contact your state's TRIFED representative or District Tribal Welfare Office.",
+    "helpline": "TRIFED Helpline: 011-26569064"
+  },
+  {
+    "id": "nsfdc",
+    "name": "National Scheduled Castes Finance and Development Corporation schemes",
+    "category": "Social Justice",
+    "description": "Loans and skill support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": [
+        "SC"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "SC caste certificate",
+      "Income certificate (below double the poverty line)",
+      "Bank account details"
+    ],
+    "benefits": "Concessional loans (4–8% interest) for income-generating activities and skill development for SC individuals.",
+    "apply_url": "https://nsfdc.nic.in",
+    "verified": false,
+    "application_process": "Apply through State Channelising Agencies (SCAs) in your state.",
+    "helpline": "NSFDC Toll Free: 1800-110-396"
+  },
+  {
+    "id": "nskfdc",
+    "name": "National Safai Karamcharis Finance and Development Corporation schemes",
+    "category": "Social Justice",
+    "description": "Livelihood and rehabilitation support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Proof of community engagement in sanitation work",
+      "Bank account details"
+    ],
+    "benefits": "Concessional loans, training, and rehabilitation support for sanitation workers and their dependants.",
+    "apply_url": "https://nskfdc.nic.in",
+    "verified": false,
+    "application_process": "Apply through State Channelising Agencies (SCAs) or NSKFDC regional offices.",
+    "helpline": "NSKFDC Toll Free: 1800-110-396"
+  },
+  {
+    "id": "seed",
+    "name": "SEED",
+    "category": "Social Justice",
+    "description": "Economic empowerment of denotified, nomadic, and semi-nomadic communities.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Aadhaar card",
+      "Community certificate"
+    ],
+    "benefits": "Economic empowerment, education support, health linkage, and livelihood assistance for denotified, nomadic, and semi-nomadic communities.",
+    "apply_url": "https://socialjustice.gov.in",
+    "verified": false,
+    "application_process": "Contact the District Social Welfare Office or Ministry of Social Justice and Empowerment.",
+    "helpline": "DWBDNC Toll Free Helpline: 1800-11-0396"
+  },
+  {
+    "id": "minority_schemes",
+    "name": "Schemes for minorities",
+    "category": "Social Justice",
+    "description": "Scholarships, education, livelihood, and infrastructure support.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": [
+        "Minority"
+      ]
+    },
+    "documents": [
+      "Aadhaar card",
+      "Minority community certificate",
+      "Income certificate",
+      "Educational certificates",
+      "Bank account details"
+    ],
+    "benefits": "Pre-matric scholarships, post-matric scholarships, merit-cum-means scholarships, Naya Savera (free coaching), Hamari Dharohar, and Pradhan Mantri Jan Vikas Karyakram.",
+    "apply_url": "https://scholarships.gov.in",
+    "verified": false,
+    "application_process": "Apply through the National Scholarship Portal (scholarships.gov.in) for scholarship schemes.",
+    "helpline": "Ministry of Minority Affairs Toll Free: 1800-11-2001"
+  },
+  {
+    "id": "agnipath",
+    "name": "Agnipath Scheme",
+    "category": "Defence and Citizen Services",
+    "description": "Military recruitment framework.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "10th / 12th standard educational marksheet & certificate",
+      "Aadhaar card",
+      "Domicile / Nativity certificate",
+      "Character certificate and NCC/Sports certificate (if applicable)"
+    ],
+    "benefits": "4-year contractual engagement in the Indian Armed Forces (Army, Navy, Air Force) with monthly package (₹30,000 to ₹40,000), Seva Nidhi financial exit package of ~₹11.71 lakh (tax-free), non-contributory life insurance cover of ₹48 lakh, and skill certification. Up to 25% enrolled into regular cadre.",
+    "apply_url": "https://joinindianarmy.nic.in",
+    "verified": false,
+    "application_process": "Apply online during recruitment cycles via official Indian Army (joinindianarmy.nic.in), Indian Navy (joinindiannavy.gov.in), or Indian Air Force (agnipathvayu.cdac.in) recruitment portals.",
+    "helpline": "Armed Forces Recruitment Helpdesk: 011-26175471"
+  },
+  {
+    "id": "echs",
+    "name": "Ex-Servicemen Contributory Health Scheme",
+    "category": "Defence and Citizen Services",
+    "description": "Healthcare for eligible veterans and dependants.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": [
+        "ex-serviceman"
+      ],
+      "social_category": null
+    },
+    "documents": [
+      "Ex-serviceman identity card",
+      "ECHS smart card",
+      "Discharge book"
+    ],
+    "benefits": "Cashless medical treatment for retired armed forces personnel and their eligible dependants at ECHS polyclinics and empanelled hospitals.",
+    "apply_url": "https://echs.gov.in",
+    "verified": false,
+    "application_process": "Apply for ECHS membership at your nearest ECHS station HQ or Record Office. Submit the application along with discharge book and photographs.",
+    "helpline": "ECHS helpline: 1800-114-115"
+  },
+  {
+    "id": "flag_day_fund",
+    "name": "Armed Forces Flag Day Fund schemes",
+    "category": "Defence and Citizen Services",
+    "description": "Welfare support for armed forces personnel and families.",
+    "citizen_eligible": true,
+    "eligibility": {
+      "min_age": null,
+      "max_age": null,
+      "max_income": null,
+      "state": null,
+      "area": null,
+      "gender": null,
+      "occupation": null,
+      "social_category": null
+    },
+    "documents": [
+      "Service/discharge documents",
+      "Identity proof"
+    ],
+    "benefits": "Welfare support including education scholarships, housing, medical assistance, and rehabilitation for armed forces personnel, veterans, and their families.",
+    "apply_url": "https://ksb.gov.in",
+    "verified": false,
+    "application_process": "Apply through Zila Sainik Boards or the Kendriya Sainik Board.",
+    "helpline": "Kendriya Sainik Board Helpline: 011-26715250"
+  },
+  {
+    "id": "digilocker",
+    "name": "DigiLocker",
+    "category": "Defence and Citizen Services",
+    "description": "Secure access to government-issued documents.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Aadhaar number",
+      "Aadhaar-linked mobile phone (for OTP verification)"
+    ],
+    "benefits": "Cloud platform for issuing and verifying digital certificates and documents eliminating physical paperwork; offers 1 GB cloud storage linked to citizen Aadhaar.",
+    "apply_url": "https://www.digilocker.gov.in",
+    "verified": false,
+    "application_process": "Visit digilocker.gov.in or download the DigiLocker mobile app. Sign up with Aadhaar number, verify via OTP, set a 6-digit security PIN, and search for documents issued by central/state governments, universities, and banks.",
+    "helpline": "DigiLocker Helpdesk: support@digitallocker.gov.in"
+  },
+  {
+    "id": "umang",
+    "name": "UMANG",
+    "category": "Defence and Citizen Services",
+    "description": "Access to multiple government services through one platform.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "Mobile number",
+      "Aadhaar card (optional for enhanced authentication)"
+    ],
+    "benefits": "Unified mobile platform providing single-point access to over 1,200 central and state government services including EPF, PAN, Aadhaar, DigiLocker, scholarships, utility bills, and pension services.",
+    "apply_url": "https://web.umang.gov.in",
+    "verified": false,
+    "application_process": "Download UMANG app from Google Play / Apple App Store or access web portal at web.umang.gov.in. Register using mobile number and explore available ministry services.",
+    "helpline": "UMANG Toll Free: 1800-11-5246"
+  },
+  {
+    "id": "csc",
+    "name": "Common Service Centres",
+    "category": "Defence and Citizen Services",
+    "description": "Assisted access to digital government services.",
+    "citizen_eligible": false,
+    "eligibility": null,
+    "documents": [
+      "For Citizens seeking services: Aadhaar, relevant application documents as per specific scheme.",
+      "For VLE (Village Level Entrepreneur) applicants: Aadhaar card, PAN card, 10th pass certificate, cancelled cheque, photo of CSC center."
+    ],
+    "benefits": "Access points for delivery of essential public utility services, social welfare schemes, healthcare, financial, education, and agriculture services to rural and remote citizens.",
+    "apply_url": "https://csc.gov.in",
+    "verified": false,
+    "application_process": "Citizens can locate and walk into the nearest CSC center. Prospective operators can apply to become a Village Level Entrepreneur (VLE) via register.csc.gov.in with a TEC (Telecentre Entrepreneur Course) certificate.",
+    "helpline": "CSC Helpdesk: 14599"
+  }
+]
