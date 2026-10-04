@@ -8,7 +8,7 @@ import json
 from typing import Any
 
 from agent.recommendation import recommend_schemes, FACT_FIELDS, FIELD_LABELS
-from rag.json_retriever import JSONSchemeRetriever
+from rag.live_retriever import LiveSchemeRetriever
 
 
 # ---------------------------------------------------------------------------
@@ -17,11 +17,11 @@ from rag.json_retriever import JSONSchemeRetriever
 
 def retrieve_schemes(
     profile: dict[str, Any],
-    retriever: JSONSchemeRetriever,
+    retriever: LiveSchemeRetriever,
     *,
     top_k: int = 3,
 ) -> dict[str, Any]:
-    """Retrieve candidate schemes from ChromaDB for *profile*.
+    """Retrieve candidate schemes via live web search for *profile*.
 
     Returns
     -------

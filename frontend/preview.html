@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Government Benefits Navigator Preview</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <nav class="navbar">
+        <a class="brand" href="#"><span class="brand-mark">AI</span><span>Benefits Navigator</span></a>
+        <div class="nav-links">
+          <a>Home</a><a>My Profile</a><a>My Benefits</a><a>Search / Ask AI</a><a>About</a>
+        </div>
+        <span class="powered">Official-source AI</span>
+      </nav>
+      <section class="hero product-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI decision-support assistant</p>
+          <h1>Government benefits, personalized for you.</h1>
+          <p class="hero-subtitle">Tell us what you're going through.</p>
+          <p class="hero-description">We'll find relevant government support, explain your eligibility, identify missing information, and show you what to do next.</p>
+          <div class="hero-actions">
+            <a class="primary-button hero-button">Build My Benefits Profile →</a>
+            <a class="secondary-button hero-button">Ask the AI</a>
+          </div>
+        </div>
+        <div class="glass-card journey-card">
+          <p class="eyebrow">Personalized journey</p>
+          <div class="journey-line"><span>01</span><p>Profile and goals</p></div>
+          <div class="journey-line"><span>02</span><p>Live official-source research</p></div>
+          <div class="journey-line"><span>03</span><p>Eligibility reasoning</p></div>
+          <div class="journey-line"><span>04</span><p>Missing info and action plan</p></div>
+        </div>
+      </section>
+      <section class="navigator-layout">
+        <section class="glass-card profile-card progressive-card">
+          <div class="card-heading">
+            <div><p class="eyebrow">My Profile</p><h2>Build your benefits profile</h2></div>
+            <button class="text-button">Reset</button>
+          </div>
+          <div class="progress-tabs">
+            <button class="active">1. You</button><button>2. Situation</button><button>3. Descriptors</button><button>4. Goal</button>
+          </div>
+          <div class="form-grid">
+            <label class="field"><span>Age</span><input placeholder="24" /></label>
+            <label class="field"><span>State / UT</span><select><option>Karnataka</option></select></label>
+            <label class="field"><span>District / City</span><input placeholder="Mysuru" /></label>
+            <label class="field"><span>Gender</span><select><option>Female</option></select></label>
+          </div>
+          <div class="choice-grid" style="margin-top: 16px;">
+            <button class="choice active">Student</button>
+            <button class="choice">Farmer</button>
+            <button class="choice active">OBC</button>
+            <button class="choice">Person with disability</button>
+            <button class="choice active">Start a business</button>
+            <button class="choice">Skill development</button>
+          </div>
+          <div class="builder-actions" style="margin-top: 18px;">
+            <button class="secondary-button">Back</button>
+            <button class="primary-button compact-button">Research My Benefits</button>
+          </div>
+        </section>
+        <section class="glass-card ask-card">
+          <p class="eyebrow">Search / Ask AI</p>
+          <h2>Tell us naturally</h2>
+          <p class="muted">Speak or type your situation and goal. The app converts it into backend profile fields, then uses live official-source research.</p>
+          <textarea>I'm 24, from Karnataka, unemployed, OBC, and I want to start a tailoring business.</textarea>
+          <button class="secondary-button">Analyze Situation</button>
+          <div class="voice-note">Voice can plug into the existing speech helpers when exposed by the backend; no API keys are exposed here.</div>
+        </section>
+      </section>
+      <section class="results-section">
+        <div class="results-heading">
+          <div><p class="eyebrow">Personalized benefits map</p><h2>Based on your profile and current official sources.</h2><p>24 years • Female • Karnataka • Unemployed • OBC • Start a business</p></div>
+          <div class="count-card"><strong>3</strong><span>benefit insights</span></div>
+        </div>
+        <div class="journey-map">
+          <div class="glass-card journey-mini"><span>Education</span><strong>No strong match found</strong><p>Add more education details to improve this area.</p></div>
+          <div class="glass-card journey-mini"><span>Career</span><strong>Possible support</strong><p>Skill development program</p></div>
+          <div class="glass-card journey-mini"><span>Financial</span><strong>Possible support</strong><p>Entrepreneurship assistance</p></div>
+        </div>
+        <div class="glass-card missing-panel">
+          <div><p class="eyebrow">Complete your profile</p><h3>Improve the results</h3></div>
+          <div class="known-grid">
+            <div><strong>We know</strong><span>✓ Age</span><span>✓ State</span><span>✓ Category</span></div>
+            <div><strong>We still need</strong><span>⚠ Annual household income</span><span>⚠ Business type</span><span>⚠ Training status</span></div>
+          </div>
+        </div>
+        <div class="glass-card trust-panel">
+          <div><p class="eyebrow">Sources checked</p><h3>Official-source transparency</h3></div>
+          <div class="source-list"><a>✓ myscheme.gov.in</a><a>✓ karnataka.gov.in</a><a>✓ msde.gov.in</a></div>
+        </div>
+        <div class="scheme-grid">
+          <article class="glass-card scheme-card insight-card">
+            <div class="scheme-top">
+              <div><p class="eyebrow">Benefit insight</p><h3>Entrepreneurship Support Scheme</h3></div>
+              <span class="status-pill relevant">Likely match</span>
+            </div>
+            <div class="verified-line"><span>✓ Official source</span><strong>gov.in</strong></div>
+            <section class="info-block"><h4>Why this matches you</h4><p>Your profile indicates a business-starting goal and a current need for employment/self-employment support.</p></section>
+            <section class="info-block"><h4>We still need to verify</h4><ul><li>⚠ Income certificate</li><li>⚠ Business category</li></ul></section>
+            <section class="info-block"><h4>Next action</h4><p>Open the official source, verify the latest eligibility notification, and prepare the required documents before applying.</p></section>
+            <div class="card-actions"><button class="secondary-button">Compare option</button><a class="source-button">Open Official Portal →</a></div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

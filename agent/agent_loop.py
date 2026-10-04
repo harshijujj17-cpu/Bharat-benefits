@@ -26,7 +26,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-from rag.json_retriever import JSONSchemeRetriever
+from rag.live_retriever import LiveSchemeRetriever
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -41,9 +41,9 @@ _TOOL_DECLARATIONS = types.Tool(
         types.FunctionDeclaration(
             name="retrieve_schemes",
             description=(
-                "Search the ChromaDB scheme collection for candidate schemes "
+                "Search live official government web sources for candidate schemes "
                 "matching the citizen profile.  Call this after inspecting the "
-                "profile to obtain scheme candidates."
+                "profile to obtain current scheme candidates. Do not use a local dataset."
             ),
             parameters={
                 "type": "OBJECT",
@@ -114,7 +114,7 @@ a final scheme recommendation.
 Workflow:
 1. Inspect the profile.  If critical fields (state, occupation, income) are
    empty or ambiguous, call ``ask_followup`` with a single clarifying question.
-2. Call ``retrieve_schemes`` to get candidate schemes from ChromaDB.
+2. Call ``retrieve_schemes`` to get candidate schemes from live official sources.
 3. If retrieval returns zero useful schemes, retry ``retrieve_schemes`` ONCE
    with a higher top_k (e.g. 5).  If still empty, produce a polite "no
    schemes found" final answer.
@@ -148,7 +148,7 @@ def _dispatch_tool(
     fn_args: dict[str, Any],
     *,
     profile: dict[str, Any],
-    retriever: JSONSchemeRetriever,
+    retriever: LiveSchemeRetriever,
     state: dict[str, Any],
     status: list[str],
     gemini_client: Any,
@@ -226,7 +226,7 @@ class AgentResult:
 
 def run_agent(
     profile: dict[str, Any],
-    retriever: JSONSchemeRetriever,
+    retriever: LiveSchemeRetriever,
     *,
     client: Any | None = None,
     model_name: str | None = None,
@@ -237,8 +237,8 @@ def run_agent(
     ----------
     profile : dict
         Structured citizen profile built from the form.
-    retriever : SchemeRetriever
-        An initialised ``SchemeRetriever`` instance (ChromaDB).
+    retriever : LiveSchemeRetriever
+        An initialised live-search retriever (Tavily).
     client : optional
         Pre-built ``genai.Client``.  Created from env if ``None``.
     model_name : optional

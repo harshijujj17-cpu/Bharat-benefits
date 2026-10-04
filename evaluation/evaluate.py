@@ -10,8 +10,9 @@ from typing import Any, Callable
 
 from dotenv import load_dotenv
 
-from agent.recommendation import recommend_schemes
-from rag.retriever import SchemeRetriever
+from agent.pipeline import recommend_for_profile
+from agent.profile_normalize import normalize_profile
+from rag.live_retriever import LiveSchemeRetriever
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -68,25 +69,35 @@ def _score(expected: set[str], predicted: set[str]) -> dict[str, float]:
 
 def evaluate_profiles(
 	profiles: list[dict[str, Any]],
-	retriever: Any,
-	recommender: Callable[..., dict[str, Any]] = recommend_schemes,
+	retriever: Any | None = None,
+	recommender: Callable[..., dict[str, Any]] | None = None,
 	top_k: int = 3,
 ) -> dict[str, Any]:
-	"""Run the real retrieval and recommendation path for each test profile."""
+	"""Run live retrieval and recommendation for each test profile.
+
+	Expected scheme names from older static datasets are informational only.
+	Live official pages will not always match those historical labels.
+	"""
 	results = []
 	total_correct = 0
 	total_expected = 0
 	total_predicted = 0
 	exact_matches = 0
 	successful = 0
+	retriever = retriever or LiveSchemeRetriever()
 
 	for index, profile in enumerate(profiles):
 		profile_id = str(profile.get("profile_id", f"profile-{index + 1}"))
 		expected = _scheme_names(profile.get("expected_relevant_schemes"))
-		recommendation_profile = _recommendation_profile(profile)
+		recommendation_profile = normalize_profile(_recommendation_profile(profile))
 		try:
-			retrieved = retriever.retrieve_schemes(recommendation_profile, top_k=top_k)
-			recommendation_result = recommender(recommendation_profile, retrieved)
+			if recommender is not None:
+				retrieved = retriever.retrieve_schemes(recommendation_profile, top_k=top_k)
+				recommendation_result = recommender(recommendation_profile, retrieved)
+			else:
+				recommendation_result = recommend_for_profile(
+					recommendation_profile, retriever=retriever, top_k=top_k
+				)
 			recommendations = recommendation_result.get("recommendations", [])
 			predicted = _scheme_names(
 				[
@@ -158,7 +169,7 @@ def evaluate_profiles(
 
 def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(
-		description="Evaluate ChromaDB and Gemini recommendations against labeled profiles."
+		description="Evaluate live Tavily + Gemini recommendations against labeled profiles."
 	)
 	parser.add_argument("--profiles", type=Path, default=DEFAULT_PROFILES_PATH)
 	parser.add_argument("--output", type=Path, default=DEFAULT_RESULTS_PATH)
@@ -172,9 +183,9 @@ def main(argv: list[str] | None = None) -> int:
 		parser.error("--limit must be at least 1")
 
 	load_dotenv(PROJECT_ROOT / ".env")
-	if not os.getenv("GEMINI_API_KEY"):
+	if not os.getenv("GEMINI_API_KEY") or not os.getenv("TAVILY_API_KEY"):
 		print(
-			"GEMINI_API_KEY is not set. Add it to Government-Scheme-Agent/.env.",
+			"GEMINI_API_KEY and TAVILY_API_KEY must be set in Government-Scheme-Agent/.env.",
 			file=sys.stderr,
 		)
 		return 2
@@ -183,7 +194,7 @@ def main(argv: list[str] | None = None) -> int:
 		profiles = _load_profiles(args.profiles)
 		if args.limit is not None:
 			profiles = profiles[: args.limit]
-		retriever = SchemeRetriever()
+		retriever = LiveSchemeRetriever()
 		report = evaluate_profiles(profiles, retriever, top_k=args.top_k)
 		args.output.parent.mkdir(parents=True, exist_ok=True)
 		args.output.write_text(

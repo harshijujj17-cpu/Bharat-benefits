@@ -1,11 +1,9 @@
-"""Ground Gemini explanations in schemes retrieved from ChromaDB."""
+"""Ground Gemini explanations in schemes retrieved from live search."""
 
 import json
 import os
-from pathlib import Path
 from typing import Any
 
-from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
@@ -17,7 +15,6 @@ from agent.prompts import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MODEL_NAME = "gemini-3.1-flash-lite"
 FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash")
 FACT_FIELDS = (
@@ -26,7 +23,10 @@ FACT_FIELDS = (
 	"benefits",
 	"required_documents",
 	"application_process",
-	"official_source",
+	"application_url",
+	"official_source_url",
+	"government_department",
+	"important_dates",
 )
 FIELD_LABELS = {
 	"description": "Description",
@@ -34,19 +34,24 @@ FIELD_LABELS = {
 	"benefits": "Benefits",
 	"required_documents": "Required documents",
 	"application_process": "Application process",
+	"application_url": "Application URL",
+	"official_source_url": "Official source URL",
 	"official_source": "Official source URL",
+	"government_department": "Government / department",
+	"important_dates": "Important dates",
 	"helpline": "Helpline",
 }
 
-# Map canonical output field → actual key(s) in schemes.json, in priority order.
-# The first key that exists and is non-empty in the scheme record wins.
 FIELD_ALIASES: dict[str, tuple[str, ...]] = {
 	"description": ("description",),
 	"eligibility": ("eligibility",),
 	"benefits": ("benefits",),
 	"required_documents": ("required_documents", "documents"),
 	"application_process": ("application_process",),
-	"official_source": ("official_source", "apply_url"),
+	"application_url": ("application_url", "apply_url"),
+	"official_source_url": ("official_source_url", "official_source", "apply_url"),
+	"government_department": ("government_department", "department", "government"),
+	"important_dates": ("important_dates",),
 }
 
 
@@ -113,9 +118,13 @@ def _parse_model_response(response_text: str) -> dict[str, dict[str, Any]]:
 			raise ValueError("Gemini returned prohibited definitive-eligibility wording.")
 		if scheme_name in parsed:
 			raise ValueError(f"Gemini returned a duplicate scheme: {scheme_name}")
+		status = item.get("eligibility_status") or "cannot_confirm"
+		if status not in {"relevant", "not_relevant", "cannot_confirm", "likely_not_eligible"}:
+			status = "cannot_confirm"
 		parsed[scheme_name] = {
 			"relevance_explanation": explanation,
 			"missing_information": missing_information,
+			"eligibility_status": status,
 		}
 	return parsed
 
@@ -129,11 +138,11 @@ def _build_recommendation(
 		"eligibility_notice": ELIGIBILITY_NOTICE,
 		"missing_information": list(explanation["missing_information"]),
 		"citizen_eligible": scheme.get("citizen_eligible", True),
+		"eligibility_status": explanation.get("eligibility_status", "cannot_confirm"),
 	}
 
 	for field in FACT_FIELDS:
 		value = _resolve_field(scheme, field)
-		# Format eligibility dict into a readable bullet list
 		if field == "eligibility" and isinstance(value, dict):
 			value = _format_eligibility(value)
 		if value is None or value == "" or value == []:
@@ -147,10 +156,15 @@ def _build_recommendation(
 	if helpline is not None and helpline != "" and helpline != []:
 		result["helpline"] = helpline
 
-	if not result.get("official_source"):
+	if scheme.get("source_verification"):
+		result["source_verification"] = scheme["source_verification"]
+
+	if not result.get("official_source_url"):
 		result["missing_information"].append(
 			"The retrieved scheme data does not include an official source URL."
 		)
+	else:
+		result["official_source"] = result["official_source_url"]
 
 	result["missing_information"] = list(dict.fromkeys(result["missing_information"]))
 	return result
@@ -162,10 +176,10 @@ def recommend_schemes(
 	client: Any | None = None,
 	model_name: str | None = None,
 ) -> dict[str, Any]:
-	"""Explain Chroma-retrieved schemes and attach their authoritative source data.
+	"""Explain live-retrieved schemes and attach their source data.
 
-	Pass the result of ``SchemeRetriever.retrieve_schemes(profile)`` as
-	``retrieved_schemes``. No other scheme records are loaded or searched here.
+	Pass the result of live retrieval as ``retrieved_schemes``.
+	No local scheme dataset is loaded or searched here.
 	"""
 	if not retrieved_schemes:
 		return {"recommendations": [], "notice": "No schemes were retrieved for this profile."}
