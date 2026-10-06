@@ -192,6 +192,7 @@ function App() {
 
 function Results({ result, state }) {
   const recs = result.recommendations || [];
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const counts = { likely: 0, possible: 0, no: 0, info: 0 };
   for (const r of recs) {
     const label = statusLabel(r.eligibility_status);
@@ -209,18 +210,81 @@ function Results({ result, state }) {
         <div className="summary-card"><strong>{counts.no}</strong><span>Not Eligible</span></div>
       </div>
       {recs.length === 0 && <p className="muted">No relevant government benefits were found from live official sources for this profile. Try adding more details or a different need.</p>}
-      {recs.map((r, i) => <BenefitCard key={i} scheme={r} state={state} others={recs.filter((_, j) => j !== i)} />)}
+      {recs.map((r, i) => <BenefitCard key={i} scheme={r} state={state} others={recs.filter((_, j) => j !== i)} onDetails={() => setSelectedIndex(i)} />)}
+      {selectedIndex !== null && recs[selectedIndex] && (
+        <div className="details-overlay" role="dialog" aria-modal="true" onClick={() => setSelectedIndex(null)}>
+          <div className="details-panel" onClick={(e) => e.stopPropagation()}>
+            <button className="ghost details-close" onClick={() => setSelectedIndex(null)} aria-label="Close details">Close</button>
+            <DetailsView scheme={recs[selectedIndex]} state={state} others={recs.filter((_, j) => j !== selectedIndex)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function BenefitCard({ scheme, state, others }) {
+function DetailsView({ scheme, state, others }) {
+  const label = statusLabel(scheme.eligibility_status);
+  return (
+    <div>
+      <h3>{scheme.scheme_name || "Unnamed benefit"}</h3>
+      <div className={`badge ${label === "Likely Eligible" ? "ok" : label === "Not Eligible" ? "bad" : "warn"}`}>{label}</div>
+      <DetailSection title="Why this result was produced" value={scheme.relevance_explanation} />
+      <DetailSection title="Eligibility status" value={label} />
+      <DetailSection title="Benefit description" value={scheme.description} />
+      <DetailSection title="Benefit value" value={scheme.benefits} />
+      <DetailSection title="Eligibility conditions" value={typeof scheme.eligibility === "string" ? scheme.eligibility : null} />
+      <DetailSection title="Required documents" list={scheme.required_documents} />
+      <DetailSection title="Application process" value={scheme.application_process} />
+      <DetailSection title="Important dates" value={scheme.important_dates} />
+      <DetailSection title="State/Department" value={scheme.government_department} />
+      <DetailSection title="Missing information" list={scheme.missing_information} emptyText="No missing information reported." />
+      <DetailSection title="Why you may qualify / cannot be confirmed" value={scheme.relevance_explanation} />
+      <p><strong>State:</strong> {state || "Not provided"}</p>
+      {scheme.official_source_url ? (
+        <p><a href={scheme.official_source_url} target="_blank" rel="noreferrer">Open official source</a></p>
+      ) : (
+        <p className="muted">No official source URL returned.</p>
+      )}
+      {scheme.source_verification && <p className="muted">Source: {scheme.source_verification.domain || "official source"} ({scheme.source_verification.tier || "verified"})</p>}
+      {others.length > 0 && (
+        <div className="alt-box">
+          <strong>Alternatives:</strong>
+          <ul>{others.slice(0, 3).map((o, i) => <li key={i}>{o.scheme_name || "Unnamed benefit"}</li>)}</ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DetailSection({ title, value, list, emptyText }) {
+  if (list && Array.isArray(list) && list.length > 0) {
+    return <Detail blockTitle={title}><ul>{list.map((item, i) => <li key={i}>{String(item)}</li>)}</ul></Detail>;
+  }
+  if (list && Array.isArray(list) && list.length === 0) {
+    return <Detail blockTitle={title}><p className="muted">{emptyText || "Not provided by the retrieved source."}</p></Detail>;
+  }
+  if (value === null || value === undefined || value === "") {
+    return <Detail blockTitle={title}><p className="muted">Not provided by the retrieved source.</p></Detail>;
+  }
+  if (typeof value === "object") {
+    return <Detail blockTitle={title}><p className="muted">Not provided by the retrieved source.</p></Detail>;
+  }
+  return <Detail blockTitle={title}><p>{String(value)}</p></Detail>;
+}
+
+function Detail({ blockTitle, children }) {
+  return <div className="detail-block"><strong>{blockTitle}</strong>{children}</div>;
+}
+
+function BenefitCard({ scheme, state, others, onDetails }) {
   const label = statusLabel(scheme.eligibility_status);
   const notEligible = label === "Not Eligible";
   return (
     <article className="benefit-card">
       <h3>{scheme.scheme_name}</h3>
       <div className={`badge ${label === "Likely Eligible" ? "ok" : label === "Not Eligible" ? "bad" : "warn"}`}>{label}</div>
+      <button className="ghost details-btn" onClick={onDetails} aria-label={`Details for ${scheme.scheme_name}`}>Details</button>
       {scheme.relevance_explanation && <p><strong>Why:</strong> {scheme.relevance_explanation}</p>}
       {scheme.eligibility && <p><strong>Eligibility conditions:</strong> {typeof scheme.eligibility === "string" ? scheme.eligibility : JSON.stringify(scheme.eligibility)}</p>}
       {scheme.missing_information?.length > 0 && (
