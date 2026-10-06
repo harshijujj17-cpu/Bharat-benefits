@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+from fastapi import HTTPException
 from fastapi.testclient import TestClient
 
 from agent.pipeline import recommend_for_profile, search_schemes
@@ -393,7 +394,203 @@ def test_api_search_failure_does_not_return_schemes(monkeypatch, api_client):
 
     monkeypatch.setattr("api.main.search_schemes", boom)
     response = api_client.get("/schemes/search", params={"q": "scholarships"})
-    assert response.status_code == 503
+    assert response.status_code == 502
     body = response.json()
+    assert body["detail"]["error"] == "provider_upstream_error"
+    assert body["detail"]["provider"] == "tavily"
     assert body["detail"]["fallback_used"] is False
     assert "recommendations" not in body
+
+
+# ── Production-readiness tests ───────────────────────────────────────────
+
+def test_recommend_runs_pipeline_once_and_returns_journey(monkeypatch, api_client):
+    calls = {"n": 0}
+
+    def fake_recommend(profile, top_k=8):
+        calls["n"] += 1
+        return {
+            "recommendations": [
+                {
+                    "scheme_name": "Scholarship X",
+                    "eligibility_status": "relevant",
+                    "relevance_explanation": "Matches the student profile.",
+                    "official_source_url": OFFICIAL_URL,
+                    "source_verification": {
+                        "is_official_government_source": True,
+                        "domain": "myscheme.gov.in",
+                    },
+                }
+            ],
+            "retrieval": {"mode": "live_web_search", "cached": False},
+            "notice": None,
+        }
+
+    monkeypatch.setattr("api.main.recommend_for_profile", fake_recommend)
+    resp = api_client.post(
+        "/recommend", json={"age": 20, "state": "Telangana", "category": "OBC"}
+    )
+    assert resp.status_code == 200
+    assert calls["n"] == 1, "/recommend must run the live pipeline exactly once"
+    payload = resp.json()
+    assert "journey" in payload
+    steps = payload["journey"]["journey"]
+    assert isinstance(steps, list) and steps[0]["eligibility_state"] == "MATCH"
+
+
+def test_benefits_journey_with_recommendations_skips_live_search(monkeypatch, api_client):
+    def boom(*args, **kwargs):
+        raise AssertionError(
+            "recommend_for_profile must not run when recommendations are supplied"
+        )
+
+    monkeypatch.setattr("api.main.recommend_for_profile", boom)
+    resp = api_client.post(
+        "/benefits/journey",
+        json={
+            "age": 20,
+            "state": "Telangana",
+            "recommendations": [
+                {
+                    "scheme_name": "A",
+                    "eligibility_status": "relevant",
+                    "official_source_url": OFFICIAL_URL,
+                },
+                {
+                    "scheme_name": "B",
+                    "eligibility_status": "cannot_confirm",
+                    "official_source_url": OFFICIAL_URL,
+                    "missing_information": ["Income certificate"],
+                },
+            ],
+        },
+    )
+    assert resp.status_code == 200
+    payload = resp.json()
+    states = {step["scheme_name"]: step["eligibility_state"] for step in payload["journey"]}
+    assert states == {"A": "MATCH", "B": "UNKNOWN"}
+    assert payload["summary"]["total_options"] == 2
+
+
+def test_health_reports_config_without_leaking_keys(api_client):
+    resp = api_client.get("/health")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["stores_schemes"] is False
+    cfg = body["config"]
+    assert cfg["gemini_api_key_present"] is True
+    assert cfg["tavily_api_key_present"] is True
+    assert isinstance(cfg["model"], str) and cfg["model"]
+    # Actual secret values must never appear in the response.
+    assert "test-gemini" not in resp.text
+    assert "test-tavily" not in resp.text
+
+
+def test_clarify_uses_canonical_extraction_and_preserves_unknowns(monkeypatch, api_client):
+    monkeypatch.setattr(
+        "api.main.extract_profile",
+        lambda text, **kwargs: {
+            "age": 30,
+            "gender": None,
+            "state": "Karnataka",
+            "education": None,
+            "occupation": None,
+            "annual_household_income_inr": None,
+            "category": None,
+            "disability_status": None,
+            "farmer_status": None,
+        },
+    )
+    resp = api_client.post("/clarify", json={"text": "I am 30 and live in Karnataka."})
+    assert resp.status_code == 200
+    payload = resp.json()
+    assert payload["profile_source"] == "llm"
+    profile = payload["profile"]
+    assert profile["age"] == 30
+    assert profile["state"] == "Karnataka"
+    # Unknown values stay None — never coerced to False/empty.
+    assert profile["gender"] is None
+    assert profile["annual_household_income_inr"] is None
+    assert profile["category"] is None
+    assert payload["ready_for_recommendation"] is False
+    fields = {question["field"] for question in payload["missing_questions"]}
+    assert "annual_household_income_inr" in fields
+
+
+def test_clarify_does_not_overwrite_provided_fields_with_none(monkeypatch, api_client):
+    monkeypatch.setattr(
+        "api.main.extract_profile",
+        lambda text, **kwargs: {
+            "age": None, "gender": None, "state": None, "education": None,
+            "occupation": None, "annual_household_income_inr": None,
+            "category": None, "disability_status": None, "farmer_status": None,
+        },
+    )
+    resp = api_client.post("/clarify", json={"text": "something", "age": 42, "state": "Goa"})
+    assert resp.status_code == 200
+    profile = resp.json()["profile"]
+    assert profile["age"] == 42
+    assert profile["state"] == "Goa"
+
+
+def test_ungrounded_non_government_url_is_rejected():
+    retriever = LiveSchemeRetriever(
+        search_fn=lambda query, **kwargs: [_official_hit()],
+        extract_fn=lambda hits, profile, **kwargs: [
+            {"scheme_name": "Sketchy Blog Scheme", "official_source_url": "https://random-blog.com/x"},
+            {"scheme_name": "Real Official Scheme", "official_source_url": OFFICIAL_URL},
+        ],
+    )
+    schemes = retriever.retrieve_schemes({"state": "Telangana"}, include_llm_queries=False)
+    names = [item["scheme_name"] for item in schemes]
+    assert "Sketchy Blog Scheme" not in names
+    assert names == ["Real Official Scheme"]
+    assert schemes[0]["source_verification"]["is_official_government_source"] is True
+    assert not is_official_government_url("https://random-blog.com/x")
+
+
+def test_model_config_is_single_source_of_truth(monkeypatch):
+    from agent import model_config
+
+    monkeypatch.setenv("GEMINI_MODEL", "gemini-test-primary")
+    monkeypatch.setenv("GEMINI_FALLBACK_MODELS", "gemini-a, gemini-b,gemini-a")
+    assert model_config.get_model_name() == "gemini-test-primary"
+    # De-duplicated, primary first.
+    assert model_config.ordered_models() == ["gemini-test-primary", "gemini-a", "gemini-b"]
+
+
+def test_generate_with_fallback_raises_when_all_models_fail():
+    from agent import model_config
+
+    class _StubModels:
+        def generate_content(self, **kwargs):
+            raise RuntimeError("model unavailable")
+
+    class _StubClient:
+        models = _StubModels()
+
+    with pytest.raises(RuntimeError):
+        model_config.generate_with_fallback(_StubClient(), "x", config=None, purpose="test")
+
+
+def test_rate_limiter_blocks_after_limit(monkeypatch):
+    import api.main as api_main
+
+    monkeypatch.setattr(api_main, "RATE_LIMIT_ENABLED", True)
+    monkeypatch.setattr(api_main, "RATE_LIMIT_REQUESTS", 2)
+    monkeypatch.setattr(api_main, "RATE_LIMIT_WINDOW_SECONDS", 60.0)
+    api_main._rate_buckets.clear()
+
+    class _FakeRequest:
+        headers: dict = {}
+
+        class client:
+            host = "203.0.113.9"
+
+    request = _FakeRequest()
+    api_main.rate_limit(request)
+    api_main.rate_limit(request)
+    with pytest.raises(HTTPException) as excinfo:
+        api_main.rate_limit(request)
+    assert excinfo.value.status_code == 429
+    api_main._rate_buckets.clear()

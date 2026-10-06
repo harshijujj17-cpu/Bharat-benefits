@@ -1,177 +1,98 @@
-# SevaSetu AI — Government Scheme Recommendation API
+# Bharat Benefit Navigator
 
-Live recommendation service for **current** Indian government schemes.
+**Subtitle:** AI-Powered State-Wise Citizen Welfare & Benefit Assistant
 
-The API does **not** store schemes in JSON, CSV, SQLite, ChromaDB, or any other local dataset. When a citizen profile is submitted, the service searches the public web (Tavily), prefers official `.gov.in` / `.nic.in` / MyScheme pages, extracts facts with Gemini, and matches eligibility for that request only.
+Bharat Benefit Navigator is an AI-powered, state-aware citizen welfare navigation platform. Rather than simply listing government schemes, it converts a citizen's needs and profile into a personalized **benefit journey** — containing potential benefits, eligibility reasoning, required documents, application steps, alternatives, and official sources.
+
+## Problem
+
+Most scheme-list websites make citizens do the work: guess the scheme name, search, and hope it applies to their state and situation. Lists are long, stale, and rarely explain *why* a benefit does or does not apply.
+
+## Proposed solution
+
+The user answers four things:
+
+1. **What do you need help with?** — Education, Agriculture, Employment & Business, Housing, Women & Children, Senior Citizens, Disability, Healthcare, Social Security, or Other
+2. **Which state?** — all 28 states + 8 UTs
+3. **Who are you?** — age, gender, occupation, income, category, education, farmer/student/disability status
+4. **Find My Benefits**
+
+The app runs a live pipeline and returns a **Citizen Benefit Plan**:
+
+- Potentially relevant benefits (never fabricated)
+- Eligibility status: Likely Eligible / Possibly Eligible / Not Eligible / Need More Information
+- Why the result was produced
+- Required documents and missing information
+- Application journey (check eligibility → prepare documents → official portal → submit → track)
+- Official source URLs
+- Alternatives when a benefit is not suitable
+- Explicit "Why am I not eligible?" explanations
+
+## Key innovation
+
+NORMAL: Search → Scheme list
+
+THIS PROJECT: Citizen situation → State → Need → Profile → Live government information → Eligibility reasoning → Documents → Alternatives → Application journey → Official sources
 
 ## Architecture
 
+```text
+React + Vite frontend
+        |
+        | POST /recommend, POST /clarify, POST /benefits/journey
+        v
+FastAPI API
+        |
+        +-- LLM provider abstraction (agent/llm_client.py):
+        |      Gemini (default) or any OpenAI-compatible model
+        |      configurable via LLM_PROVIDER / LLM_MODEL / LLM_API_KEY
+        |
+        +-- Tavily: live web search at request time
+                    |
+                    v
+           Official government pages (.gov.in, .nic.in, MyScheme)
 ```
-User
- ↓
-FastAPI (`POST /recommend`, `GET /schemes/search`)
- ↓
-AI scheme agent (Gemini)
- ↓
-Live Tavily web search (request time)
- ↓
-Official government sources
- ↓
-Extract current scheme information
- ↓
-Eligibility matching against the profile
- ↓
-JSON response (in-memory only)
-```
 
-## Secrets
+- No static scheme catalogue, no fabricated eligibility rules
+- Official-source grounding is mandatory: a scheme URL must appear in live Tavily results
+- Provider errors are explicit: `provider_quota_exhausted` (503), `provider_timeout` (504), `provider_upstream_error` (502), `internal_server_error` (500)
+- Rate limiting, CORS, and `/health` are preserved
 
-Copy `.env.example` to `.env` and fill in keys. Do not commit `.env`.
+## User flow
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `GEMINI_API_KEY` | yes | Google Gemini API key |
-| `TAVILY_API_KEY` | yes | Tavily search API key |
-| `GEMINI_MODEL` | no | Override model (default `gemini-3.1-flash-lite`) |
+1. Home — "What do you need help with?" (need cards) + state selector
+2. Profile — age, gender, occupation, income, category, education, statuses
+3. "Find My Benefits" → "Your Citizen Benefit Plan" dashboard
+4. Each benefit shows eligibility status, why, conditions, documents, missing info, application steps, official source, alternatives
 
-Get a Gemini key at [Google AI Studio](https://aistudio.google.com/app/apikey). Get a Tavily key at [tavily.com](https://tavily.com).
+## State-aware behavior
 
-## Run locally
+State is a first-class input. The same need in Telangana vs Andhra Pradesh vs Kerala produces different, state-attributed results via state-specific live queries. Results are always labeled with the selected state.
 
-From `Government-Scheme-Agent/`:
+## Testing & demo states
+
+Primary demo states: **Telangana, Andhra Pradesh, Kerala** — but the backend supports all 36 locations.
+
+Before demos, verify providers with `python qa/provider_smoke.py` (all checks must be `yes`). Then:
 
 ```bash
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # macOS / Linux
+# Backend
+uvicorn api.main:app --port 8000
 
-pip install -r requirements.txt
-copy .env.example .env        # Windows
-# cp .env.example .env        # macOS / Linux
-# edit .env and add GEMINI_API_KEY and TAVILY_API_KEY
-
-uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+# Frontend
+cd frontend && npm run dev
 ```
 
-Open docs at `http://127.0.0.1:8000/docs`.
+Demo scenarios: Telangana+Education student, Andhra Pradesh+Agriculture farmer, Kerala+Women & Children family profile.
 
-## Example curl requests
+Run the full test suite with `python -m pytest -q` and the frontend build with `npm run build`.
 
-```bash
-curl -s http://127.0.0.1:8000/health
+## Limitations
 
-curl -s -X POST http://127.0.0.1:8000/recommend ^
-  -H "Content-Type: application/json" ^
-  -d "{\"age\":20,\"education\":\"B.Tech\",\"state\":\"Telangana\",\"category\":\"OBC\",\"annual_income\":250000}"
+- Live provider quota (Gemini/Tavily free tiers) can interrupt runs; provider errors are surfaced explicitly instead of fake results
+- Eligibility is decision-support, not legal confirmation
+- Scheme data quality depends on official sources' own pages
 
-curl -s "http://127.0.0.1:8000/schemes/search?q=scholarships+for+OBC+students"
-```
+## Future scope
 
-macOS / Linux:
-
-```bash
-curl -s -X POST http://127.0.0.1:8000/recommend \
-  -H "Content-Type: application/json" \
-  -d '{"age":20,"education":"B.Tech","state":"Telangana","category":"OBC","annual_income":250000}'
-```
-
-## Example response shape
-
-```json
-{
-  "recommendations": [
-    {
-      "scheme_name": "Post Matric Scholarship for OBC Students",
-      "government_department": "Ministry of Social Justice and Empowerment",
-      "description": "...",
-      "eligibility": "...",
-      "benefits": "...",
-      "application_process": "...",
-      "application_url": "https://scholarships.gov.in",
-      "official_source_url": "https://www.myscheme.gov.in/schemes/...",
-      "important_dates": null,
-      "relevance_explanation": "Relevant because the profile is an OBC B.Tech student in Telangana with income within the published ceiling.",
-      "eligibility_status": "relevant",
-      "missing_information": [],
-      "source_verification": {
-        "is_official_government_source": true,
-        "domain": "myscheme.gov.in",
-        "tier": "official"
-      },
-      "eligibility_notice": "Based on the information provided, this scheme may be relevant to you. Please verify the latest eligibility criteria and application details on the official government portal before applying."
-    }
-  ],
-  "notice": null,
-  "retrieval": {
-    "mode": "live_web_search",
-    "provider": "tavily",
-    "cached": false,
-    "queries": ["site:myscheme.gov.in Telangana OBC B.Tech ..."],
-    "result_count": 8,
-    "official_result_count": 6,
-    "source_urls": ["https://www.myscheme.gov.in/..."]
-  }
-}
-```
-
-Exact scheme names and URLs change with live search. The service never invents URLs: every `official_source_url` must appear in that request's Tavily hits.
-
-If live search fails, the API returns HTTP 503 and **does not** fall back to a local scheme list.
-
-## How to verify retrieval is live
-
-1. `GET /health` includes `"stores_schemes": false`.
-2. Every successful response includes `"retrieval": {"mode": "live_web_search", "provider": "tavily", "cached": false}`.
-3. `source_urls` are pages fetched for that request.
-4. There is no `data/schemes.json` and no Chroma collection.
-5. Repeat the same profile later: newly published official pages can appear because nothing is cached on disk.
-
-## Tests
-
-```bash
-pytest -q
-```
-
-Tests cover Telangana B.Tech OBC, female student, General category, and high-income profiles. They assert live search is called, official sources are ranked first, ungrounded/hallucinated URLs are dropped, and API payloads are JSON.
-
-## Deploy
-
-This is a normal ASGI backend.
-
-**Render / Railway / Fly.io:** set `GEMINI_API_KEY` and `TAVILY_API_KEY`, start with:
-
-```bash
-uvicorn api.main:app --host 0.0.0.0 --port $PORT
-```
-
-`render.yaml` and `Procfile` are included. Docker:
-
-```bash
-docker build -t scheme-api .
-docker run -p 8000:8000 --env-file .env scheme-api
-```
-
-Free-tier notes: live search + Gemini run per request, so cold starts and rate limits depend on Tavily and Gemini quotas.
-
-## Project structure
-
-```
-Government-Scheme-Agent/
-├── api/main.py                 # FastAPI app
-├── agent/
-│   ├── pipeline.py             # recommend + live search orchestration
-│   ├── agent_loop.py           # Gemini tool-calling loop (live retriever)
-│   ├── profile_extractor.py    # free-text → structured profile
-│   ├── recommendation.py       # Gemini eligibility explanations
-│   ├── scheme_extractor.py     # extract facts from search hits
-│   └── secrets.py              # GEMINI_API_KEY / TAVILY_API_KEY
-├── rag/
-│   ├── live_retriever.py       # Tavily request-time search
-│   └── official_sources.py     # .gov.in / .nic.in ranking
-├── tests/
-├── .env.example
-├── Dockerfile
-└── requirements.txt
-```
-
-Voice helpers under `voice/` are unchanged and unused by the API.
+- Multilingual UI, offline caching of official portals, document-checklist generation PDFs, deeper state-specific integrations, WhatsApp/voice front-ends

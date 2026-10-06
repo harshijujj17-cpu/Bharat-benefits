@@ -1,14 +1,15 @@
 """Build live web-search queries from a citizen profile."""
 
 import json
-import os
+import logging
 from typing import Any
 
+from google.genai import types
+
+from agent import model_config
 from agent.profile_normalize import normalize_profile
 
-
-DEFAULT_MODEL_NAME = "gemini-3.1-flash-lite"
-FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash")
+logger = logging.getLogger(__name__)
 
 
 def build_template_queries(profile: dict[str, Any]) -> list[str]:
@@ -69,21 +70,12 @@ def build_template_queries(profile: dict[str, Any]) -> list[str]:
 
 
 def _gemini_queries(profile: dict[str, Any], client: Any | None = None) -> list[str]:
-    try:
-        from google import genai
-        from google.genai import types
-        from agent.secrets import get_gemini_api_key
-    except Exception:
-        return []
+    """Optional LLM-written queries.
 
-    if client is None:
-        try:
-            client = genai.Client(api_key=get_gemini_api_key())
-        except Exception:
-            return []
-
-    primary = os.getenv("GEMINI_MODEL", DEFAULT_MODEL_NAME)
-    models = [primary] + [name for name in FALLBACK_MODELS if name != primary]
+    Query generation is enrichment only — the deterministic template queries
+    always run — so a failure here degrades to ``[]`` but is logged rather than
+    silently swallowed.
+    """
     prompt = (
         "Generate 2 web search queries to find CURRENT official Indian government "
         "schemes for this citizen profile. Prefer site:gov.in, myscheme.gov.in, "
@@ -91,24 +83,36 @@ def _gemini_queries(profile: dict[str, Any], client: Any | None = None) -> list[
         "Do not invent scheme names.\n"
         f"{json.dumps(normalize_profile(profile), ensure_ascii=False)}"
     )
-    for model in models:
-        try:
-            response = client.models.generate_content(
-                model=model,
-                contents=prompt,
+    try:
+        if client is not None:
+            gemini_client = client
+            response = model_config.generate_with_fallback(
+                gemini_client,
+                prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     temperature=0.1,
                 ),
+                purpose="query-generation",
             )
-            if not response.text:
-                continue
-            payload = json.loads(response.text)
-            queries = payload.get("queries") if isinstance(payload, dict) else None
-            if isinstance(queries, list):
-                return [str(item).strip() for item in queries if str(item).strip()][:2]
-        except Exception:
-            continue
+        else:
+            from agent import llm_client
+
+            response = llm_client.generate(
+                prompt,
+                temperature=0.1,
+                purpose="query-generation",
+            )
+        payload = json.loads(response.text)
+    except Exception as exc:  # noqa: BLE001 - enrichment is best-effort
+        logger.warning(
+            "LLM query generation unavailable (%s: %s)", type(exc).__name__, exc
+        )
+        return []
+
+    queries = payload.get("queries") if isinstance(payload, dict) else None
+    if isinstance(queries, list):
+        return [str(item).strip() for item in queries if str(item).strip()][:2]
     return []
 
 

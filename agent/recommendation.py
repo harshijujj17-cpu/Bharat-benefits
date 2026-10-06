@@ -1,12 +1,12 @@
 """Ground Gemini explanations in schemes retrieved from live search."""
 
 import json
-import os
+import logging
 from typing import Any
 
-from google import genai
 from google.genai import types
 
+from agent import model_config
 from agent.prompts import (
 	ELIGIBILITY_NOTICE,
 	RECOMMENDATION_RESPONSE_SCHEMA,
@@ -14,9 +14,8 @@ from agent.prompts import (
 	build_recommendation_prompt,
 )
 
+logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL_NAME = "gemini-3.1-flash-lite"
-FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash")
 FACT_FIELDS = (
 	"description",
 	"eligibility",
@@ -194,37 +193,30 @@ def recommend_schemes(
 			continue
 		schemes_by_name[scheme_name] = scheme
 
-	if client is None:
-		from agent.secrets import get_api_key
-		client = genai.Client(api_key=get_api_key())
+	if client is not None:
+		response = model_config.generate_with_fallback(
+			client,
+			build_recommendation_prompt(profile, retrieved_schemes),
+			config=types.GenerateContentConfig(
+				system_instruction=SYSTEM_INSTRUCTION,
+				response_mime_type="application/json",
+				response_schema=RECOMMENDATION_RESPONSE_SCHEMA,
+				temperature=0.2,
+			),
+			model_name=model_name,
+			purpose="eligibility",
+		)
+	else:
+		from agent import llm_client
 
-	primary_model = model_name or os.getenv("GEMINI_MODEL", DEFAULT_MODEL_NAME)
-	candidate_models = [primary_model] + [m for m in FALLBACK_MODELS if m != primary_model]
-	last_error = None
-	response = None
-
-	for cand in candidate_models:
-		try:
-			response = client.models.generate_content(
-				model=cand,
-				contents=build_recommendation_prompt(profile, retrieved_schemes),
-				config=types.GenerateContentConfig(
-					system_instruction=SYSTEM_INSTRUCTION,
-					response_mime_type="application/json",
-					response_schema=RECOMMENDATION_RESPONSE_SCHEMA,
-					temperature=0.2,
-				),
-			)
-			if response.text:
-				break
-		except Exception as exc:
-			last_error = exc
-			continue
-
-	if response is None or not response.text:
-		if last_error:
-			raise last_error
-		raise ValueError("Gemini returned an empty recommendation response.")
+		response = llm_client.generate(
+			build_recommendation_prompt(profile, retrieved_schemes),
+			system_instruction=SYSTEM_INSTRUCTION,
+			response_schema=RECOMMENDATION_RESPONSE_SCHEMA,
+			temperature=0.2,
+			model_name=model_name,
+			purpose="eligibility",
+		)
 
 	explanations = _parse_model_response(response.text)
 	unexpected_names = explanations.keys() - schemes_by_name.keys()

@@ -6,18 +6,14 @@ invent information.
 """
 
 import json
-import os
-from pathlib import Path
+import logging
 from typing import Any
 
-from dotenv import load_dotenv
-from google import genai
 from google.genai import types
 
+from agent import model_config
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MODEL_NAME = "gemini-3.1-flash-lite"
-FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash")
+logger = logging.getLogger(__name__)
 
 # ── Response schema ──────────────────────────────────────────────────────
 
@@ -98,39 +94,30 @@ def extract_profile(
     if not text or not text.strip():
         return _empty_profile()
 
-    gemini_client = client
-    if gemini_client is None:
-        from agent.secrets import get_api_key
-        gemini_client = genai.Client(api_key=get_api_key())
+    if client is not None:
+        response = model_config.generate_with_fallback(
+            client,
+            text.strip(),
+            config=types.GenerateContentConfig(
+                system_instruction=_EXTRACTION_SYSTEM_INSTRUCTION,
+                response_mime_type="application/json",
+                response_schema=PROFILE_RESPONSE_SCHEMA,
+                temperature=0.0,
+            ),
+            model_name=model_name,
+            purpose="profile-extraction",
+        )
+    else:
+        from agent import llm_client
 
-    primary = model_name or os.getenv("GEMINI_MODEL", DEFAULT_MODEL_NAME)
-    candidates = [primary] + [m for m in FALLBACK_MODELS if m != primary]
-
-    last_error: Exception | None = None
-    response = None
-
-    for model in candidates:
-        try:
-            response = gemini_client.models.generate_content(
-                model=model,
-                contents=text.strip(),
-                config=types.GenerateContentConfig(
-                    system_instruction=_EXTRACTION_SYSTEM_INSTRUCTION,
-                    response_mime_type="application/json",
-                    response_schema=PROFILE_RESPONSE_SCHEMA,
-                    temperature=0.0,
-                ),
-            )
-            if response.text:
-                break
-        except Exception as exc:
-            last_error = exc
-            continue
-
-    if response is None or not response.text:
-        if last_error:
-            raise last_error
-        raise ValueError("Gemini returned an empty profile-extraction response.")
+        response = llm_client.generate(
+            text.strip(),
+            system_instruction=_EXTRACTION_SYSTEM_INSTRUCTION,
+            response_schema=PROFILE_RESPONSE_SCHEMA,
+            temperature=0.0,
+            model_name=model_name,
+            purpose="profile-extraction",
+        )
 
     return _parse_response(response.text)
 

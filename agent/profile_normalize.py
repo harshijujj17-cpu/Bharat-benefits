@@ -35,11 +35,12 @@ def normalize_profile(payload: dict[str, Any] | None) -> dict[str, Any]:
     if isinstance(education, dict):
         education = education.get("level") or education.get("highest_level") or education.get("currently_enrolled")
 
-    income = (
-        raw.get("annual_income")
-        or raw.get("annual_household_income_inr")
-        or financial.get("annual_household_income_inr")
-    )
+    # Preserve explicit 0 income: only fall back on None/unset, not falsy values.
+    income = raw.get("annual_income")
+    if income is None:
+        income = raw.get("annual_household_income_inr")
+    if income is None:
+        income = financial.get("annual_household_income_inr")
 
     category = raw.get("category") or raw.get("social_category")
     occupation = raw.get("occupation")

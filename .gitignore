@@ -15,14 +15,9 @@ __pycache__/
 chroma_db/
 data/schemes.json
 
-# Secrets
-.streamlit/secrets.toml
-
 # Test / scratch outputs
 test_12_telangana_results.json
 test_10_results.json
-streamlit_out.txt
-streamlit_err.txt
 evaluation/evaluation_results.json
 
 # OS
@@ -31,3 +26,12 @@ Thumbs.db
 
 frontend/node_modules/
 frontend/dist/
+
+# QA artifacts and logs
+qa/node_modules/
+qa/*.log
+qa/nationwide/
+qa/full-results/
+qa/smoke-results/
+frontend/.env
+qa/*.json

@@ -58,8 +58,8 @@ DEFAULT_MODEL_NAME = _TRANSCRIBE_MODEL
 # ─────────────────────────────────────────────────────────────────
 # MIME normalisation
 # ─────────────────────────────────────────────────────────────────
-# Streamlit st.audio_input (sample_rate=16000) returns audio/wav.
-# Some browsers may return audio/webm; normalise to Gemini-supported values.
+# Browser media recorders commonly emit audio/webm or audio/wav;
+# normalise to Gemini-supported values.
 _MIME_ALIASES: dict[str, str] = {
     "audio/x-wav": "audio/wav",
     "audio/wave": "audio/wav",
@@ -237,25 +237,24 @@ def transcribe_audio(
 ) -> str:
     """Transcribe a microphone recording, preserving its selected language.
 
-    Tries the dedicated ``gemini-3.5-transcribe`` model first, then falls back
-    to multimodal models (``gemini-3.1-flash-lite``, ``gemini-3.5-flash``).
-    Refusal responses are detected and skipped.
+    Tries the dedicated transcription model first, then falls back to
+    multimodal models. Refusal responses are detected and skipped.
 
-    The actual API error is always included in ``SpeechToTextError`` so that
-    the Streamlit UI can display it for debugging.
+    The actual API error is always included in ``SpeechToTextError`` so the
+    calling UI can display it for debugging.
 
     Parameters
     ----------
     audio_bytes:
-        Raw bytes from ``st.audio_input().getvalue()``.
+        Raw audio bytes captured from the microphone.
     mime_type:
-        MIME type from Streamlit (e.g. ``"audio/wav"``).
+        MIME type of the recording (e.g. ``"audio/wav"``).
     language:
         One of ``SUPPORTED_LANGUAGES`` (English, Hindi, Telugu).
     client:
         Optional pre-built ``genai.Client`` (useful in tests).
     model_name:
-        Override primary model (skips ``gemini-3.5-transcribe``).
+        Override primary model (skips the dedicated transcription model).
     """
     if not audio_bytes:
         raise SpeechToTextError(

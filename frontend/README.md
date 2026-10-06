@@ -2,7 +2,7 @@
 
 Modern user-facing frontend for the Government Scheme Recommendation Agent.
 
-This app does not use Swagger, Streamlit, mock scheme data, or a local scheme dataset. It calls the existing FastAPI backend:
+This app does not use mock scheme data or a local scheme dataset. It calls the existing FastAPI backend:
 
 - `POST /recommend`
 - `GET /health`

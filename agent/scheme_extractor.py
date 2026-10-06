@@ -1,18 +1,16 @@
 """Extract scheme facts from live search hits. Never invent URLs or scheme data."""
 
 import json
-import os
+import logging
 from typing import Any
 
-from google import genai
 from google.genai import types
 
+from agent import model_config
 from rag.live_retriever import SearchHit
 from rag.official_sources import source_verification
 
-
-DEFAULT_MODEL_NAME = "gemini-3.1-flash-lite"
-FALLBACK_MODELS = ("gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash")
+logger = logging.getLogger(__name__)
 
 EXTRACT_SCHEMA: dict[str, Any] = {
     "type": "OBJECT",
@@ -69,41 +67,34 @@ def extract_schemes_from_hits(
     if not hits:
         return []
 
-    if client is None:
-        from agent.secrets import get_gemini_api_key
-
-        client = genai.Client(api_key=get_gemini_api_key())
-
     payload = {
         "citizen_profile": profile or {},
         "search_results": [hit.as_dict() for hit in hits],
     }
-    primary = model_name or os.getenv("GEMINI_MODEL", DEFAULT_MODEL_NAME)
-    models = [primary] + [name for name in FALLBACK_MODELS if name != primary]
-    last_error: Exception | None = None
-    response = None
-    for model in models:
-        try:
-            response = client.models.generate_content(
-                model=model,
-                contents=json.dumps(payload, ensure_ascii=False),
-                config=types.GenerateContentConfig(
-                    system_instruction=SYSTEM_INSTRUCTION,
-                    response_mime_type="application/json",
-                    response_schema=EXTRACT_SCHEMA,
-                    temperature=0.0,
-                ),
-            )
-            if response.text:
-                break
-        except Exception as exc:
-            last_error = exc
-            continue
+    if client is not None:
+        response = model_config.generate_with_fallback(
+            client,
+            json.dumps(payload, ensure_ascii=False),
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_INSTRUCTION,
+                response_mime_type="application/json",
+                response_schema=EXTRACT_SCHEMA,
+                temperature=0.0,
+            ),
+            model_name=model_name,
+            purpose="scheme-extraction",
+        )
+    else:
+        from agent import llm_client
 
-    if response is None or not response.text:
-        if last_error:
-            raise last_error
-        raise ValueError("Gemini returned an empty scheme-extraction response.")
+        response = llm_client.generate(
+            json.dumps(payload, ensure_ascii=False),
+            system_instruction=SYSTEM_INSTRUCTION,
+            response_schema=EXTRACT_SCHEMA,
+            temperature=0.0,
+            model_name=model_name,
+            purpose="scheme-extraction",
+        )
 
     try:
         parsed = json.loads(response.text)

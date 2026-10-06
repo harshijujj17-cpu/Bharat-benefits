@@ -1130,3 +1130,31 @@ h3 {
     flex-direction: column;
   }
 }
+
+/* -- Bharat Benefit Navigator (new journey) -- */
+.site-header { text-align: center; padding: 24px 16px 8px; }
+.site-header h1 { margin: 0; font-size: 2rem; }
+.tagline { color: #555; margin-top: 4px; }
+.panel { max-width: 900px; margin: 0 auto; padding: 20px; }
+.muted { color: #666; }
+.need-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
+.need-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; background: #fff; cursor: pointer; }
+.need-card.selected { border-color: #1a73e8; box-shadow: 0 0 0 2px #1a73e8; }
+.need-icon { font-size: 1.8rem; }
+.field { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.field input, .field select { padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.row { display: flex; gap: 12px; margin-top: 16px; }
+button.primary { background: #1a73e8; color: #fff; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; }
+button.ghost { background: transparent; border: 1px solid #bbb; padding: 12px 20px; border-radius: 8px; cursor: pointer; }
+.summary-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
+.summary-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 14px; text-align: center; background: #fafafa; }
+.summary-card strong { font-size: 1.6rem; display: block; }
+.benefit-card { border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; margin: 14px 0; background: #fff; }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: .85rem; margin: 6px 0; }
+.badge.ok { background: #e6f4ea; color: #137333; }
+.badge.warn { background: #fef7e0; color: #b06000; }
+.badge.bad { background: #fce8e6; color: #c5221f; }
+.error-box { background: #fce8e6; color: #c5221f; padding: 12px; border-radius: 8px; margin: 12px 0; }
+.alt-box { background: #f1f3f4; border-radius: 8px; padding: 12px; margin-top: 12px; }
+.journey { margin-top: 10px; }

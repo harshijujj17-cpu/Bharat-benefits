@@ -9,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from agent.model_config import get_tavily_timeout_seconds
 from rag.official_sources import is_official_government_url, normalize_url, source_verification
 
 
@@ -126,12 +127,15 @@ class LiveSchemeRetriever:
             "max_results": self.max_results_per_query,
             "include_answer": False,
             "search_depth": "basic",
+            "timeout": get_tavily_timeout_seconds(),
         }
         try:
             payload = client.search(**kwargs)
         except TypeError:
+            # Tavily SDK build without a `timeout` kwarg: retry without it.
+            kwargs.pop("timeout", None)
             try:
-                payload = client.search(query)
+                payload = client.search(**kwargs)
             except Exception as exc:
                 raise LiveSearchError(f"Live search failed: {exc}") from exc
         except Exception as exc:
