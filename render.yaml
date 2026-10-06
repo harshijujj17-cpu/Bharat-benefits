@@ -1,11 +1,27 @@
 services:
+  # FastAPI backend — live Tavily retrieval + configured LLM provider
   - type: web
-    name: scheme-recommendation-api
+    name: bharat-benefit-navigator-api
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
     envVars:
       - key: GEMINI_API_KEY
         sync: false
       - key: TAVILY_API_KEY
         sync: false
+      - key: CORS_ORIGINS
+        # Set to the deployed frontend origin, e.g. https://bharat-benefit-navigator-web.onrender.com
+        sync: false
+
+  # React/Vite frontend — static site, build with the public backend URL
+  - type: web
+    name: bharat-benefit-navigator-web
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      # Public URL only — never a secret
+      - key: VITE_API_URL
+        value: https://bharat-benefit-navigator-api.onrender.com
