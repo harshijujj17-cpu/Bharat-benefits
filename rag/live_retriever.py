@@ -129,15 +129,15 @@ class LiveSchemeRetriever:
             "search_depth": "basic",
             "timeout": get_tavily_timeout_seconds(),
         }
+        from agent import retry
+
         try:
-            payload = client.search(**kwargs)
-        except TypeError:
-            # Tavily SDK build without a `timeout` kwarg: retry without it.
-            kwargs.pop("timeout", None)
             try:
-                payload = client.search(**kwargs)
-            except Exception as exc:
-                raise LiveSearchError(f"Live search failed: {exc}") from exc
+                payload = retry.with_retries(lambda: client.search(**kwargs), provider="tavily", operation="search")
+            except TypeError:
+                # Tavily SDK build without a `timeout` kwarg: retry without it.
+                kwargs.pop("timeout", None)
+                payload = retry.with_retries(lambda: client.search(**kwargs), provider="tavily", operation="search")
         except Exception as exc:
             raise LiveSearchError(f"Live search failed: {exc}") from exc
 

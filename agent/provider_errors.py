@@ -48,13 +48,15 @@ def classify_provider_error(exc: BaseException) -> dict[str, Any] | None:
     provider = _provider_for(exc, text)
 
     if _QUOTA_RE.search(text):
-        return {"status": 503, "error": ERROR_QUOTA, "provider": provider, "message": MESSAGE_QUOTA}
+        return {"status": 503, "error": ERROR_QUOTA, "provider": provider, "message": MESSAGE_QUOTA, "category": "provider_rate_limit"}
     if _TIMEOUT_RE.search(text) or isinstance(exc, TimeoutError):
-        return {"status": 504, "error": ERROR_TIMEOUT, "provider": provider, "message": MESSAGE_TIMEOUT}
+        return {"status": 504, "error": ERROR_TIMEOUT, "provider": provider, "message": MESSAGE_TIMEOUT, "category": "provider_timeout"}
+    if "401" in text or "403" in text or "unauthorized" in text or "invalid api key" in text or "api key not valid" in text:
+        return {"status": 502, "error": ERROR_UPSTREAM, "provider": provider, "message": MESSAGE_UPSTREAM, "category": "provider_auth_error"}
     if _UPSTREAM_5XX_RE.search(text):
-        return {"status": 502, "error": ERROR_UPSTREAM, "provider": provider, "message": MESSAGE_UPSTREAM}
+        return {"status": 502, "error": ERROR_UPSTREAM, "provider": provider, "message": MESSAGE_UPSTREAM, "category": "provider_unavailable"}
     if isinstance(exc, LiveSearchError):
-        return {"status": 502, "error": ERROR_UPSTREAM, "provider": "tavily", "message": MESSAGE_UPSTREAM}
+        return {"status": 502, "error": ERROR_UPSTREAM, "provider": "tavily", "message": MESSAGE_UPSTREAM, "category": "transient_provider_error"}
     return None
 
 
@@ -67,6 +69,7 @@ def provider_error_detail(exc: BaseException) -> dict[str, Any] | None:
         "error": classified["error"],
         "provider": classified["provider"],
         "message": classified["message"],
+        "category": classified.get("category"),
     }
 
 

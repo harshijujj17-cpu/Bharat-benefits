@@ -163,7 +163,7 @@ function App() {
           </div>
           <div className="row">
             <button className="ghost" onClick={() => setStep("home")}>Back</button>
-            <button className="primary" onClick={findBenefits}>Find My Benefits</button>
+            <button className="primary" disabled={loading} onClick={findBenefits}>{loading ? "Searching..." : "Find My Benefits"}</button>
           </div>
         </main>
       )}
@@ -172,8 +172,13 @@ function App() {
         <main className="panel">
           <h2>Your Citizen Benefit Plan</h2>
           <p className="muted">Results for <strong>{state}</strong> · Need: <strong>{need?.label}</strong></p>
-          {loading && <p className="muted">Searching live official sources and building your benefit journey…</p>}
-          {error && <div className="error-box">⚠ {error}</div>}
+          {loading && <p className="muted">Searching live official sources and checking eligibility...</p>}
+          {error && (
+            <div className="error-box">
+              ⚠ Live government-source retrieval is temporarily busy. We couldn't complete this search safely. Please try again.
+              <div className="row"><button className="primary" onClick={findBenefits}>Try again</button></div>
+            </div>
+          )}
           {result && <Results result={result} state={state} />}
           <div className="row">
             <button className="ghost" onClick={startOver}>Start over</button>

@@ -65,7 +65,7 @@ def _gemini_generate(prompt: str, *, system_instruction: str | None, response_sc
     from google import genai
     from google.genai import types
 
-    from agent import model_config
+    from agent import model_config, retry
     from agent.secrets import get_gemini_api_key
 
     client = genai.Client(api_key=get_gemini_api_key(), http_options=types.HttpOptions(timeout=model_config.get_timeout_ms()))
@@ -75,7 +75,11 @@ def _gemini_generate(prompt: str, *, system_instruction: str | None, response_sc
         response_schema=response_schema,
         temperature=temperature,
     )
-    response = client.models.generate_content(model=model_name, contents=prompt, config=config)
+
+    def _call():
+        return client.models.generate_content(model=model_name, contents=prompt, config=config)
+
+    response = retry.with_retries(_call, provider="gemini", operation=purpose)
     return LLMResponse(response.text or "")
 
 
@@ -98,14 +102,19 @@ def _openai_compatible_generate(prompt: str, *, system_instruction: str | None, 
         "response_format": {"type": "json_object"},
     }
     timeout = float(os.getenv("LLM_TIMEOUT_SECONDS", "30"))
-    req = urllib.request.Request(
-        f"{base}/chat/completions",
-        data=json.dumps(body).encode("utf-8"),
-        headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
-        method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310
-        payload = json.loads(resp.read().decode("utf-8"))
+    def _call():
+        req2 = urllib.request.Request(
+            f"{base}/chat/completions",
+            data=json.dumps(body).encode("utf-8"),
+            headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req2, timeout=timeout) as resp:  # noqa: S310
+            return json.loads(resp.read().decode("utf-8"))
+
+    from agent import retry
+
+    payload = retry.with_retries(_call, provider="openai_compatible", operation=purpose)
     text = payload["choices"][0]["message"]["content"]
     return LLMResponse(text or "")
 

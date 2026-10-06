@@ -272,6 +272,7 @@ def _map_pipeline_errors(exc: Exception) -> HTTPException:
                 "error": classified["error"],
                 "provider": classified["provider"],
                 "message": classified["message"],
+                "category": classified.get("category"),
             },
         )
     if isinstance(exc, ValueError):
@@ -416,6 +417,7 @@ def schemes_search(
                     "error": classified["error"],
                     "provider": classified["provider"],
                     "message": classified["message"],
+                    "category": classified.get("category"),
                     "fallback_used": False,
                 },
             ) from exc
