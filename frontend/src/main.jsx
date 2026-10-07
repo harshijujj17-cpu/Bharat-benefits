@@ -73,11 +73,14 @@ function App() {
       need: need ? need.label : null,
       top_k: 8,
     };
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 180000);
     try {
       const resp = await fetch(`${API_URL}/recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
       const body = await resp.json();
       if (!resp.ok) {
@@ -86,8 +89,13 @@ function App() {
         setResult(body);
       }
     } catch (e) {
-      setError("Could not reach the backend. Is the API server running?");
+      if (e.name === "AbortError") {
+        setError("The server took too long to respond. Please try again.");
+      } else {
+        setError("Could not reach the backend. Is the API server running?");
+      }
     } finally {
+      clearTimeout(timeoutId);
       setLoading(false);
     }
   }
