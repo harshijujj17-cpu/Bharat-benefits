@@ -1,8 +1,8 @@
-# Bharat Benefit Navigator
+# AI-Powered Government Scheme Recommendation System for Telangana
 
-**Subtitle:** AI-Powered State-Wise Citizen Welfare & Benefit Assistant
+**Subtitle:** Telangana Government Scheme Assistant
 
-Bharat Benefit Navigator is an AI-powered, state-aware citizen welfare navigation platform. Rather than simply listing government schemes, it converts a citizen's needs and profile into a personalized **benefit journey** — containing potential benefits, eligibility reasoning, required documents, application steps, alternatives, and official sources.
+This system is an AI-powered citizen welfare navigation platform focused entirely on Telangana. It recommends Telangana State Government schemes and Central/National Government schemes applicable to Telangana citizens. Rather than simply listing government schemes, it converts a citizen's needs and profile into a personalized **benefit journey** containing potential benefits, eligibility reasoning, required documents, application steps, alternatives, and official sources.
 
 ## Problem
 
@@ -13,7 +13,7 @@ Most scheme-list websites make citizens do the work: guess the scheme name, sear
 The user answers four things:
 
 1. **What do you need help with?** — Education, Agriculture, Employment & Business, Housing, Women & Children, Senior Citizens, Disability, Healthcare, Social Security, or Other
-2. **Which state?** — all 28 states + 8 UTs
+2. **Which state?** — Telangana
 3. **Who are you?** — age, gender, occupation, income, category, education, farmer/student/disability status
 4. **Find My Benefits**
 
@@ -67,11 +67,11 @@ FastAPI API
 
 ## State-aware behavior
 
-State is a first-class input. The same need in Telangana vs Andhra Pradesh vs Kerala produces different, state-attributed results via state-specific live queries. Results are always labeled with the selected state.
+The current supported scope is Telangana. If a request names a different state, the API returns: "Currently, this system is designed specifically for Telangana citizens."
 
-## Testing & demo states
+## Testing & demo scope
 
-Primary demo states: **Telangana, Andhra Pradesh, Kerala** — but the backend supports all 36 locations.
+Use Telangana profiles for recommendations, including Telangana-specific schemes and Central/National schemes applicable to Telangana citizens.
 
 Before demos, verify providers with `python qa/provider_smoke.py` (all checks must be `yes`). Then:
 
@@ -83,7 +83,7 @@ uvicorn api.main:app --port 8000
 cd frontend && npm run dev
 ```
 
-Demo scenarios: Telangana+Education student, Andhra Pradesh+Agriculture farmer, Kerala+Women & Children family profile.
+Demo scenarios: Telangana student, Telangana farmer, Telangana woman, Telangana citizen with an applicable Central Government scheme, and a non-Telangana state rejection check.
 
 Run the full test suite with `python -m pytest -q` and the frontend build with `npm run build`.
 
@@ -93,6 +93,11 @@ Run the full test suite with `python -m pytest -q` and the frontend build with `
 - Eligibility is decision-support, not legal confirmation
 - Scheme data quality depends on official sources' own pages
 
-## Future scope
+## Current Implementation
 
-- Multilingual UI, offline caching of official portals, document-checklist generation PDFs, deeper state-specific integrations, WhatsApp/voice front-ends
+- Telangana State Government schemes
+- Central Government schemes applicable to Telangana
+- Live Tavily retrieval
+- Official government sources
+- Gemini-based extraction and processing
+- State and need relevance validation

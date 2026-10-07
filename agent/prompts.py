@@ -29,6 +29,24 @@ text states a limit the profile appears to exceed. Use "relevant" when the
 stated facts align without claiming certainty. Return every provided scheme
 exactly once, using its exact scheme_name, and return no other schemes. Return
 only JSON matching the requested response schema.
+
+STATE RELEVANCE RULES:
+- If the citizen profile specifies a state, check whether each scheme is
+  applicable to that state.
+- A scheme explicitly from a DIFFERENT state (e.g. a Karnataka scheme for a
+  Telangana citizen) must be marked "not_relevant" with an explanation.
+- Central Government / Government of India schemes that apply nationally are
+  valid for any state.
+- Do NOT fabricate state applicability. If the scheme text does not mention the
+  citizen's state and is not a central scheme, set eligibility_status to
+  "cannot_confirm" and note this in missing_information.
+
+NEED/GOAL RELEVANCE RULES:
+- If the citizen profile specifies a goal/need, check whether the scheme's
+  domain matches that need.
+- A scheme for a completely unrelated domain (e.g. agriculture scheme for an
+  education need) should be marked "not_relevant" unless there is an explicit
+  connection stated in the scheme data.
 """.strip()
 
 RECOMMENDATION_RESPONSE_SCHEMA: dict[str, Any] = {

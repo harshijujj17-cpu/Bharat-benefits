@@ -54,6 +54,7 @@ from agent.profile_normalize import normalize_profile
 from rag.live_retriever import LiveSearchError
 
 logger = logging.getLogger(__name__)
+TELANGANA_ONLY_NOTICE = "Currently, this system is designed specifically for Telangana citizens."
 
 
 # ── Configuration ────────────────────────────────────────────────────────
@@ -330,11 +331,26 @@ def recommend(payload: RecommendRequest, _: None = Depends(rate_limit)) -> dict[
         profile["goal"] = profile["need"]
     if profile.get("need") and not profile.get("current_situation"):
         profile["current_situation"] = profile["need"]
+        
+    state_val = str(profile.get("state") or "").strip().lower()
+    if state_val and state_val != "telangana":
+        notice = TELANGANA_ONLY_NOTICE
+        result = {
+            "scope": "Telangana",
+            "notice": notice,
+            "recommendations": [],
+            "retrieval": {}
+        }
+        result["journey"] = _journey_from_recommendations(normalize_profile(profile), result)
+        result["journey"]["notice"] = notice
+        return result
+
     try:
         result = recommend_for_profile(profile, top_k=payload.top_k)
     except Exception as exc:  # noqa: BLE001 - mapped to a JSON error below
         raise _map_pipeline_errors(exc) from exc
 
+    result["scope"] = "Telangana"
     # Derive the journey from THIS result — no second live search.
     result["journey"] = _journey_from_recommendations(normalize_profile(profile), result)
     return result

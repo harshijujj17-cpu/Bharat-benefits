@@ -4,15 +4,7 @@ import "./styles.css";
 
 const API_URL = (import.meta.env.VITE_API_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 
-const INDIAN_STATES = [
-  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa",
-  "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala",
-  "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland",
-  "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
-  "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands",
-  "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Delhi",
-  "Jammu and Kashmir", "Ladakh", "Lakshadweep", "Puducherry",
-];
+const SUPPORTED_STATES = ["Telangana"];
 
 const NEEDS = [
   { id: "education", icon: "🎓", label: "Education", goal: "Education; scholarship support" },
@@ -44,7 +36,7 @@ function statusLabel(status) {
 function App() {
   const [step, setStep] = useState("home"); // home | profile | results
   const [need, setNeed] = useState(null);
-  const [state, setState] = useState("");
+  const [state, setState] = useState("Telangana");
   const [profile, setProfile] = useState({
     age: "", gender: "", occupation: "", annual_income: "", category: "",
     education: "", farmer_status: "No", student_status: "No", disability_status: "No",
@@ -103,7 +95,7 @@ function App() {
   function startOver() {
     setStep("home");
     setNeed(null);
-    setState("");
+    setState("Telangana");
     setResult(null);
     setError("");
     setProfile({ age: "", gender: "", occupation: "", annual_income: "", category: "", education: "", farmer_status: "No", student_status: "No", disability_status: "No", employment_status: "", district: "", customNeed: "" });
@@ -112,8 +104,8 @@ function App() {
   return (
     <div className="app">
       <header className="site-header">
-        <h1>Bharat Benefit Navigator</h1>
-        <p className="tagline">AI-Powered State-Wise Citizen Welfare &amp; Benefit Assistant</p>
+        <h1>AI-Powered Government Scheme Recommendation System for Telangana</h1>
+        <p className="tagline">Telangana Government Scheme Assistant</p>
       </header>
 
       {step === "home" && (
@@ -135,7 +127,7 @@ function App() {
           <label className="field">Select Your State
             <select value={state} onChange={(e) => setState(e.target.value)}>
               <option value="">Choose state / UT…</option>
-              {INDIAN_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
+              {SUPPORTED_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
           </label>
           <div className="row">
@@ -177,6 +169,11 @@ function App() {
             <div className="error-box">
               ⚠ Live government-source retrieval is temporarily busy. We couldn't complete this search safely. Please try again.
               <div className="row"><button className="primary" onClick={findBenefits}>Try again</button></div>
+            </div>
+          )}
+          {result?.notice && (
+            <div className="error-box" style={{ backgroundColor: "rgba(255, 165, 0, 0.1)", color: "#b27300", borderColor: "rgba(255, 165, 0, 0.2)" }}>
+              ℹ {result.notice}
             </div>
           )}
           {result && <Results result={result} state={state} />}

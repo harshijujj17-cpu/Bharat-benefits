@@ -54,6 +54,14 @@ Rules:
 - Prefer .gov.in / .nic.in / myscheme.gov.in pages.
 - Skip results that are not about a specific government scheme.
 - Return only JSON matching the schema.
+- STATE RELEVANCE: Identify which state or central government each scheme
+  belongs to. If the citizen_profile specifies a state, strongly prefer
+  schemes from that state or Central Government schemes applicable nationally.
+  Do NOT claim a scheme is for a specific state unless the search result text
+  explicitly states it. A scheme from one state must not be attributed to
+  another state.
+- If a scheme is from the Central Government / Government of India, note it
+  in the government_department field (e.g. "Government of India - Ministry of X").
 """.strip()
 
 

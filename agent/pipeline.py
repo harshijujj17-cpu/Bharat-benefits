@@ -14,8 +14,9 @@ NO_RESULTS_NOTICE = (
 
 
 def _public_scheme(scheme: dict[str, Any]) -> dict[str, Any]:
-    blocked = {"_match_score"}
+    blocked = {"_match_score", "_state_applicability"}
     return {key: value for key, value in scheme.items() if key not in blocked}
+
 
 
 def recommend_for_profile(
